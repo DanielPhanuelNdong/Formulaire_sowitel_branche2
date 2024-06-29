@@ -1,0 +1,134 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #171d34;
+    
+    user-select: none;
+    overflow-x: hidden;
+}
+
+/* page numero 1*/
+.container{
+    height: 470px;
+    width: 400px;
+    border-radius: 15px;
+    background-color: aliceblue;
+    margin-top: 50px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container2{
+    align-content: center;
+    text-align: center;
+}
+.logosowitel{
+    margin-top: 10px;
+    height: 150px;
+    width: 200px;
+    align-self: center;
+}
+.login, .passe{
+    height: 33px;
+    width: 300px;
+    margin: 5px;
+    padding-left: 40px;
+}
+/* .login:hover, .passe:hover{
+    background-color: antiquewhite;
+    border: white;
+} */
+.login:focus, .passe:focus{
+    background-color: rgb(255, 255, 255);
+    border: white;
+}
+input::placeholder{
+    color: rgb(173, 173, 175);
+}
+.divform{
+    position: relative;
+}
+.icon1{
+    position: absolute;
+    top: 15px;
+    left: 40px;
+    color: #ec910a;
+}
+.icon2{
+    position: absolute;
+    top: 64px;
+    left: 40px;
+    color: #ec910a;
+}
+/* validation // identification */
+.vall{
+    margin-top: 20px;
+}
+.valider{
+    height: 40px;
+    width: 300;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-block: 10px;
+    margin-top: 20px;
+    background-color: #ec910a;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    border: white 5px;
+    text-decoration: none;
+}
+.annuler{
+    height: 40px;
+    width: 300;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-block: 10px;
+    margin-top: 20px;
+    background-color: #ec910a;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    border: white 5px;
+    text-decoration: none;
+}
+.valider:hover{
+    background-color: #171d34;
+    color: white;
+    cursor: pointer;
+}
+p{
+    color: #ec910a;
+    font-weight: bolder;
+}
+h1{
+    color: #171d34;
+    
+}
+
+/* valider ou annuler */
+.group-vall{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+}
+.group-vall .vall{
+    margin-right: 10px;
+}
+
+/* selecte */
+.selecter{
+    padding-block: 10px;
+    padding-inline: 70px;
+}
