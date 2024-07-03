@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>page de gestion Responsable</title>
+</head>
+
+<body id="webresposervey">
+    <div id="editionserveys">
+        <header>
+            <nav>
+                <img id="imgprofil" src="" alt="avatar" srcset="">
+                <h2>Responsable SOWITEL </h2>
+            </nav>
+        </header>
+        
+        <section class="section1">
+            <div class="col1">
+                <img src="images/Sowitel_.png" alt="Sowitel" srcset="">
+                <div id="Mesh3">
+                    <div class="mes s" data-table ="table0">
+                        <h3 class="hh3" id="lbgestionserveys"><i class="fa-regular fa-user"></i> </h3>
+                    </div>
+                </div>
+                <div class="divh3 mes" >
+                    <h3 class="hh3" id="lbdeconnexion"></h3>
+                </div>
+            </div>
+            <div class="col2">
+                <section class="modal disp" id="mod">
+                    <div class="contenu-modal">
+                        <div class="body-modal">
+                            <p>Voulez-vous vraiment valider ?</p>
+                        </div>
+                        <div class="footer-modal">
+                            <button type="button" class="close-modal" id="annul">Annuler</button>
+                            <button type="button" class="valider-modal" id="valid">Valider</button>
+                        </div>
+                    </div>
+                </section>
+                <section class="modal disp" id="mod_image" >
+                    <div class="contenu-modal-photo">
+                        <div>
+                            <img class="image-modal" id="img_contenu" src="" alt="Description_image" srcset="">
+                        </div>
+                        <div class="footer-modal">
+                            <img class="cancel-modal-photo" id="back" src="images/cancel.png" alt="" srcset="">
+                        </div>
+                    </div>
+                </section>
+                <div class="div1">
+                    <div class="div111">
+                        <img src="images/avatar.png" alt="avatar" srcset="">
+                    <div>
+                        <h2 class="gestion" id="lbgestdeserveys"> </h2>
+                    <h4 class="edition" id="lbeditserveys"> </h4>
+                    </div>
+                    </div>
+    
+                    <button type="button" id="btncreerservey">creer</button>
+                    
+                </div>
+                <div class="tableau">
+                    <p id="lblistserveys"> </p>
+                    <table id="myTable">
+                        <thead>
+                            <tr>
+                                <th id="ticolnumerostre"></th>
+                                <th id="colnomsites"></th>
+                                <th id="colnomreseaux"></th>
+                                <th id="coldates"></th>
+                                <th id="colvilles"></th>
+                                <th id="colpays"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>mrfrf</td>
+                                <td>rwfsftsd</td>
+                                <td>12/03/24</td>
+                                <td>frddddcc</td>
+                                <td>jhhhhhhg</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>mrfrf</td>
+                                <td>srevcxdd</td>
+                                <td>12/03/24</td>
+                                <td>frddddcc</td>
+                                <td>jhhhhhhg</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>mrfrf</td>
+                                <td>raasdggs</td>
+                                <td>12/03/24</td>
+                                <td>frddddcc</td>
+                                <td>jhhhhhhg</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>mrfrf</td>
+                                <td>asgdjddd</td>
+                                <td>12/03/24</td>
+                                <td>frddddcc</td>
+                                <td>jhhhhhhg</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- partie formulaire -->
+                    
+                <div class="formulaire">
+                    <p id="para">Formulaire Serveys </p>
+                    <Form method="post" action="">
+                        <!-- partie1 formulaire -->
+                        <div class="partie1-form">
+                            <div>
+                                <label class="partie1-label" for="site">Nom du Site</label>
+                            <input class="partie1-select-input" name="site" type="text" placeholder="Nom du Site" required>
+                            </div>
+                            <div>
+                                <label class="partie1-label" for="reseau">Nom du Réseau</label>
+                            <input class="partie1-select-input" name="reseau" type="text" placeholder="Nom du Réseau" required>
+                            </div>
+                            <div>
+                                <label class="partie1-label"for="pays">Pays</label>
+                            <select class="partie1-select-input" name="pays" id="pays" required>
+                                <option value=""></option>
+                                <option value="France">France</option>
+                                <option value="Belgique">Belgique</option>
+                                <option value="Suisse">Suisse</option>
+                                <option value="Allemagne">Allemagne</option>
+                                <option value="Italie">Italie</option>
+                                <option value="Espagne">Espagne</option>
+                                <option value="Portugal">Portugal</option>
+                                <option value="Angleterre">Angleterre</option>
+                                <option value="Pays-Bas">Pays-Bas</option>
+                                <option value="Chine">Chine</option>
+                                <option value="Japon">Japon</option>
+                                <option value="Russie">Russie</option>
+                                <option value="Inde">Inde</option>
+                            </select>
+                            </div>
+                            <div>
+                                <label class="partie1-label" for="ville">Ville</label>
+                            <select class="partie1-select-input" name="ville" id="ville" required>
+                                <option value=""></option>
+                                <option value="Paris">Paris</option>
+                                <option value="Marseille">Marseille</option>
+                                <option value="Lyon">Lyon</option>
+                                <option value="Toulouse">Toulouse</option>
+                                <option value="Nice">Nice</option>
+                                <option value="Nantes">Nantes</option>
+                                <option value="Strasbourg">Strasbourg</option>
+                                <option value="Bordeaux">Bordeaux</option>
+                                <option value="Lille">Lille</option>
+                                <option value="Rennes">Rennes</option>
+                                <option value="Reims">Reims</option>
+                                <option value="Toulon">Toulon</option>
+                                <option value="Grenoble">Grenoble</option>
+                            </select>
+                            </div>
+                            <div>
+                                <label class="partie1-label" for="date">Date</label>
+                            <input class="partie1-select-input" name="date" type="date" placeholder="Date" required>
+                            </div>
+                        </div><hr class="hr1">
+                        <div class="caract">Caractéristiques :</div>
+                        <!-- partie2 formulaire -->
+                        <div class="partie2-form">
+                            <div class="ensemble1">
+                                <div class="ensemble-cover-check">
+                                    <div class="cover-check">
+                                        <div class="check">Immeuble ?</div>
+                                <div class="block-check">
+                                    <div class="block-check-oui">
+                                        <label for="oui">
+                                            Oui
+                                        </label>
+                                        <input type="checkbox" name="oui" id="oui1" required>
+                                    </div>
+                                    <div class="block-check-non">
+                                        <label for="non">
+                                            Non
+                                        </label>
+                                        <input type="checkbox" name="non" id="non1" required>
+                                    </div>
+                                </div>
+                                    </div>
+                                <div class="cover-check-second disp" id="hauteur">
+                                    <label  for="hauteur">Hauteur</label>
+                                <input id="haute" name="hauteur" type="text" placeholder="Hauteur" required>
+                                </div>
+                                </div>
+                            <div class="ensemble-cover-check disp" id="dalles">
+                                <div class="cover-check">
+                                    <div class="check">Dalles ?</div>
+                                <div class="block-check">
+                                    <div class="block-check-oui">
+                                        <label for="oui">
+                                            Oui
+                                        </label>
+                                        <input type="checkbox" name="oui" id="oui2" required>
+                                    </div>
+                                    <div class="block-check-non">
+                                        <label for="non">
+                                            Non
+                                        </label>
+                                        <input type="checkbox" name="non" id="non2" required>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="cover-check-second disp" id="etat_dalles">
+                                    <label  for="etat">Etats des dalles</label>
+                                <input id="dals" type="text" name="etat" placeholder="Etats des dalles">
+                                </div>
+                            </div>
+                            </div>
+                        <div class="ensemble1">
+                            <div class="ensemble-cover-check">
+                                <div class="cover-check">
+                                    <div class="check">Source électrique ?</div>
+                                <div class="block-check">
+                                    <div class="block-check-oui">
+                                        <label for="oui">
+                                            Oui
+                                        </label>
+                                        <input type="checkbox" name="oui" id="oui3" required>
+                                    </div>
+                                    <div class="block-check-non">
+                                        <label for="non">
+                                            Non
+                                        </label>
+                                        <input type="checkbox" name="non" id="non3" required>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="cover-check">
+                                    <div class="check">Prise terre ?</div>
+                                <div class="block-check">
+                                    <div class="block-check-oui">
+                                        <label for="oui">
+                                            Oui
+                                        </label>
+                                        <input type="checkbox" name="oui" id="oui5" required>
+                                    </div>
+                                    <div class="block-check-non">
+                                        <label for="non">
+                                            Non
+                                        </label>
+                                        <input type="checkbox" name="non" id="non5" required>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="cover-check-second" id="gps">
+                                    <label class="v-gps" for="GPS">Coordonnées GPS</label>
+                                <input class="v-gps" name="GPS" type="text" placeholder="Longitude" required>
+                                <input class="v-gps" name="GPS" type="text" placeholder="Latitude" required>
+                                <input class="v-gps" name="GPS" type="text" placeholder="Adresse" required>
+                                </div>
+                            </div>
+                            <div class="ensemble-cover-check">
+                                <div class="cover-check">
+                                    <div class="check">Opérateur existant ?</div>
+                                <div class="block-check">
+                                    <div class="block-check-oui">
+                                        <label for="oui">
+                                            Oui
+                                        </label>
+                                        <input type="checkbox" name="oui" id="oui4" required>
+                                    </div>
+                                    <div class="block-check-non">
+                                        <label for="non">
+                                            Non
+                                        </label>
+                                        <input type="checkbox" name="non" id="non4" required>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="cover-check-second disp" id="operateur">
+                                    <label  for="Operateur">Opérateur existant</label>
+                                <!-- <input name="Operateur" type="text" placeholder="Opérateur existant" required> -->
+                                <select class="operateur-existant" name="Operateur" id="">
+                                    <option value=""></option>
+                                    <option value="MTN">MTN</option>
+                                    <option value="Orange">Orange</option>
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                        <hr class="hr2">
+                        <div class="caract">Clientelle cible :</div>
+                        <div class="clientelle">
+                            <div class="cover-check-second" >
+                                <label for="mobile">Mobile</label>
+                            <input name="mobile" type="text" placeholder="Mobile" required>
+                            </div>
+                            <div class="cover-check-second" >
+                                <label for="b">B to B</label>
+                            <input name="b" type="text" placeholder="B to B" required>
+                            </div>
+                        </div>
+                        <hr class="hr2">
+                        <div class="wifi">
+                            <div class="caract">Scan périphériques wifi :</div>
+                        <div>
+                            <button type="button" id="wifi">Wifi</button>
+                        </div>
+                        </div>
+                        <div class="tableau2 disp" id="tableau_2">
+                            <div class="table2" >
+                                <table >
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nom du Wifi</th>
+                                            <th>Fréquence</th>
+                                            <th>Canal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>mrfrf</td>
+                                            <td>rwfsftsd</td>
+                                            <td>frddddcc</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>mrfrf</td>
+                                            <td>srevcxdd</td>
+                                            <td>jhhhhhhg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>mrfrf</td>
+                                            <td>raasdggs</td>
+                                            <td>jhhhhhhg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>mrfrf</td>
+                                            <td>asgdjddd</td>
+                                            <td>jhhhhhhg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div>
+                                    <button type="button">Créer</button>
+                                </div>
+                            </div>
+                            <div class="formulaire-wifi">
+                                <form action="">
+                                    <div  class="cover-check-second">
+                                        <label for="Nom_wifi">Nom du wifi</label>
+                                        <input type="text" name="nom_wifi" placeholder="Nom du wifi" required>
+                                    </div  class="cover-check-second">
+                                    <div  class="cover-check-second">
+                                        <label for="frequence">Fréquence</label>
+                                        <input type="text" name="frequence" placeholder="Fréquence" required>
+                                    </div>
+                                    <div  class="cover-check-second">
+                                        <label for="canal">Canal</label>
+                                        <input type="text" name="canal" placeholder="Canal" required>
+                                    </div>
+                                </form>
+                                <div class="bout">
+                                    <div class="group-submit">
+                                        <div class="submit" >
+                                            <button type="button">Valider</button>
+                                        </div>
+                                        <div class="submit" >
+                                            <button type="button">Annuler</button>
+                                        </div>
+                                    </div>
+                                    <div class="sub">
+                                        <button type="button">Modifier</button>
+                                        <button type="button">Supprimer</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="hr2">
+                        <div class="descript">
+                            <!-- <label class="partie2-label"  for="Description">Description de l'environnement</label> -->
+                        <Textarea class="desc-environnement" name="Description" placeholder="Description de l'environnement"></Textarea>
+                        </div>
+                        <div class="ajouts-photos">
+                            <div>
+                                <label class="partie2-label"  for="photos">photos</label>
+                            <input type="file" name="photos" id="" placeholder="inserer des images"  required>
+                            </div>
+                                <button id="mes-photos" type="button">Photos</button>
+                        </div>
+                        <div class="contenant-images disp" id="id-contenant-images">
+                            <div id="image-description">
+                                <img class="imgs" src="images/logo.png" alt="photo" srcset="">
+                                <label for="image">Description image</label>
+                                <button type="button">Supprimer</button>
+                            </div>
+                            <div>
+                                <img class="imgs" src="images/logo.png" alt="photo" srcset="">
+                                <label for="image">Description image</label>
+                                <button type="button">Supprimer</button>
+                            </div>
+                            <div>
+                                <img class="imgs" src="images/logowisio.png" alt="photo" srcset="">
+                                <label for="image">Description image</label>
+                                <button type="button">Supprimer</button>
+                            </div>
+                            <div>
+                                <img class="imgs" src="images/logo.png" alt="photo" srcset="">
+                                <label for="image">Description image</label>
+                                <button type="button">Supprimer</button>
+                            </div>
+                        </div><hr class="hr3">
+                        <div class="group-s-b">
+                            <div class="group-submit">
+                                <div class="submit" id="valider">
+                                    <button type="button">Valider</button>
+                                </div>
+                                <div class="submit" id="annuler">
+                                    <button type="button">Annuler</button>
+                                </div>
+                            </div>
+                            <div class="group-bouton">
+                                <button type="button">Modifier</button>
+                                <button type="button">Supprimer</button>
+                                <button type="button">Soumettre</button>
+                            </div>
+                        </div>
+                    </Form >
+    
+                    
+                </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+
+    <script src="js/script1.js"></script>
+    <script src="js/scriptbuild2.js"></script>
+    <script src="js/scriptevent2.js"></script>
+</body>
+
+</html>
