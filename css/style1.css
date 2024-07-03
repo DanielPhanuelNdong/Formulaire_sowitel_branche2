@@ -14,11 +14,12 @@ body{
 
 /* page numero 1*/
 .container{
-    height: 470px;
+    height: 520px;
     width: 400px;
+    overflow: auto;
     border-radius: 15px;
     background-color: aliceblue;
-    margin-top: 50px;
+    margin-top: 30px;
     box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
@@ -31,8 +32,8 @@ body{
 }
 .logosowitel{
     margin-top: 10px;
-    height: 150px;
-    width: 200px;
+    height: 205px;
+    width: 205px;
     align-self: center;
 }
 .login, .passe{
@@ -131,4 +132,378 @@ h1{
 .selecter{
     padding-block: 10px;
     padding-inline: 70px;
+}
+
+/* Message.............................................. */
+#message{
+    display: flex;
+    align-self: flex-end;
+    margin-top: 15px;
+    padding: 10px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.alert{
+    height: 50px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: flex-end;
+    background-color: white;
+    border-radius: 10px;
+    padding-inline: 20px;
+    color: #ec910a;
+}
+.closealert{
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    background-color: transparent;
+    color: #171d34;
+    font-size: 20px;
+}
+.icon-feather-x-circle{
+    color: #171d34;
+}
+
+/* icone 3........... */
+
+
+/* copyright............................ */
+.copyright{
+    position: absolute;
+    top: 570px;
+
+    color: white;
+}
+
+
+/* aspect responsive............................................................... */
+/* Style pour les ordinateurs de bureau */
+@media (max-width: 900px) {
+    /* copyright............................ */
+.copyright{
+    position: absolute;
+    top: 520px;
+
+    color: white;
+}
+    /* Message.............................................. */
+#message{
+    display: flex;
+    align-self: flex-end;
+    margin-top: 15px;
+    padding: 10px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+.alert{
+    height: 40px;
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: flex-end;
+    background-color: white;
+    border-radius: 10px;
+    padding-inline: 5px;
+    color: #ec910a;
+}
+.closealert{
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    color: #171d34;
+}
+.icon-feather-x-circle{
+    color: #171d34;
+}
+
+/* partie affichage d'informations............................... */
+/* page numero 1*/
+.container{
+    height: 430px;
+    width: 350px;
+    overflow: auto;
+    border-radius: 15px;
+    background-color: aliceblue;
+    margin-top: 50px;
+    box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container2{
+    align-content: center;
+    text-align: center;
+}
+.logosowitel{
+    margin-top: 5px;
+    height: 200px;
+    width: 200px;
+    align-self: center;
+}
+.login, .passe{
+    height: 25px;
+    width: 250px;
+    margin: 2px;
+    padding-left: 30px;
+}
+/* .login:hover, .passe:hover{
+    background-color: antiquewhite;
+    border: white;
+} */
+/* .login:focus, .passe:focus{
+    background-color: rgb(255, 255, 255);
+    border: white;
+}
+input::placeholder{
+    color: rgb(173, 173, 175);
+} */
+.divform{
+    position: relative;
+}
+.icon1{
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    color: #ec910a;
+}
+.icon2{
+    position: absolute;
+    top: 45px;
+    left: 40px;
+    color: #ec910a;
+}
+.divicon3{
+    position: absolute;
+    top: 12px;
+    left: 35px;
+    background-color: blue;
+}
+/* validation // identification */
+.vall{
+    margin-top: 15px;
+}
+.valider{
+    height: 20px;
+    width: 200;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-block: 10px;
+    margin-top: 20px;
+    background-color: #ec910a;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+    border: white 3px;
+    text-decoration: none;
+}
+.annuler{
+    height: 20px;
+    width: 200;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-block: 10px;
+    margin-top: 20px;
+    background-color: #ec910a;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+    border: white 3px;
+    text-decoration: none;
+}
+p{
+    color: #ec910a;
+    font-weight: bolder;
+    font-size: 13px;
+    padding-inline: 30px;
+}
+h1{
+    color: #171d34;
+    font-size: 20px;
+}
+}
+
+
+/* Style pour les plus petites ecrans */
+@media (max-width: 560px) {
+
+    /* copyright............................ */
+.copyright{
+    position: absolute;
+    top: 565px;
+    font-size: 12px;
+    color: #a1a8cb;
+}
+
+    body{
+        background-color: aliceblue;
+    }
+    /* Message.............................................. */
+#message{
+    display: flex;
+    align-self: flex-end;
+    margin-top: 4px;
+    padding: 5px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+.alert{
+    height: 30px;
+    width: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: flex-end;
+    background-color: white;
+    border-radius: 5px;
+    padding-inline: 5px;
+    color: #171d34;
+    font-size: 11px;
+    font-weight: bolder;
+}
+.closealert{
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    color: #171d34;
+}
+.icon-feather-x-circle{
+    color: #171d34;
+}
+
+/* partie affichage d'informations............................... */
+/* page numero 1*/
+.container{
+    height: 100vh;
+    width: 100%;
+    background-color: aliceblue;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.container2{
+    align-content: center;
+    text-align: center;
+}
+.logosowitel{
+    margin-top: 5px;
+    height: 200px;
+    width: 200px;
+    align-self: center;
+}
+.login, .passe{
+    height: 25px;
+    width: 250px;
+    margin-inline: 20px;
+    padding-left: 35px;
+}
+/* .login:hover, .passe:hover{
+    background-color: antiquewhite;
+    border: white;
+} */
+/* .login:focus, .passe:focus{
+    background-color: rgb(255, 255, 255);
+    border: white;
+}
+input::placeholder{
+    color: rgb(173, 173, 175);
+} */
+.divform{
+    position: relative;
+}
+.icon1{
+    position: absolute;
+    top: 10px;
+    left: 60px;
+    color: #ec910a;
+}
+.icon2{
+    position: absolute;
+    top: 45px;
+    left: 60px;
+    color: #ec910a;
+}
+/* validation // identification */
+.vall{
+    margin-top: 15px;
+}
+.valider{
+    height: 20px;
+    width: 200;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-block: 10px;
+    margin-top: 20px;
+    background-color: #ec910a;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+    border: white 3px;
+    text-decoration: none;
+}
+.annuler{
+    height: 20px;
+    width: 200;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-block: 10px;
+    margin-top: 20px;
+    background-color: #ec910a;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    color: white;
+    border: white 3px;
+    text-decoration: none;
+}
+p{
+    color: #ec910a;
+    font-weight: bolder;
+    font-size: 13px;
+    padding-inline: 30px;
+}
+h1{
+    color: #171d34;
+    font-size: 20px;
+}
+}
+
+
+
+
+
+
+
+/* Style pour les tres petites ecrans */
+@media (max-width: 390px) {
+
+.icon1{
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    color: #ec910a;
+}
+.icon2{
+    position: absolute;
+    top: 45px;
+    left: 40px;
+    color: #ec910a;
+}
+
 }

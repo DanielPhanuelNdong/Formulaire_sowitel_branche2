@@ -1,19 +1,14 @@
 function construirevue(nomesptrav, nomvue)
-{
+{	
 	switch(nomesptrav)
     {
-		case 'webconnexion':
-			document.getElementById('identificationcompte').setAttribute("style", "padding: 0; display: none;");
-			document.getElementById('choixprofilconnexion').setAttribute("style", "padding: 0; display: none;");
+		case 'webresposervey':
+			document.getElementById('editionserveys').setAttribute("style", "padding: 0; display: none;");
 			switch(nomvue)
             {
-				case 'identificationcompte':	
-				document.getElementById(nomvue).setAttribute("style", "padding: 0; display: block;");
-				break;
-				
-				case 'choixprofilconnexion':								
-				document.getElementById(nomvue).setAttribute("style", "padding: 0; display: block;");
-				break;					
+				case 'editionserveys':	
+					document.getElementById(nomvue).setAttribute("style", "padding: 0; display: block;");
+					break;
 			}
 		break;		
 	}
@@ -23,125 +18,183 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 {
   	switch(nomesptrav)
     {
-		case 'webconnexion':
+		case 'webresposervey':
 			switch(nomvue)
-            {
-				case 'identificationcompte':	
+            {				
+				case 'editionserveys':	
 					switch(nomcompo)
 		            {
-						case 'formidentificationweb':	
-						
+						case 'sidebar':	
 							for (const conten of contenus) 
 							{
 								switch(conten.nomconten)
 					            {
-									case 'soustitre':
-										
+									case 'lbdeconnexion':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
-										break;
-										
-									case 'lblogin':
-										document.getElementById(conten.nomconten).setAttribute("placeholder", conten.lib);
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'setlogin');
-										document.getElementById(conten.nomconten).addEventListener("change", traiterevenform);
-										break;
-										
-									case 'lbmdp':
-										document.getElementById(conten.nomconten).setAttribute("placeholder", conten.lib);
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'setmdp');
-										document.getElementById(conten.nomconten).addEventListener("change", traiterevenform);
-										break;
-										
-									case 'valbtnsidentifier':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'sidentifier');
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
 										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										break;
+										
+									case 'lbgestionserveys':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
 										break;
 								}
 							}
+							const menuBtn = document.querySelector("#menu-btn");
+    						menuBtn.addEventListener('click', () => {sidemenu.style.display = 'block';})
+    						const closeBtn = document.querySelector("#close-btn");
+    						closeBtn.addEventListener('click', () => {sidemenu.style.display = 'none';})
 							break;
 							
-							case 'enteteconnexionweb':	
+						case 'enteteditiontransactionswebadminis':	
 							for (const conten of contenus) 
 							{
 								switch(conten.nomconten)
 					            {
-									case 'logo':
-										document.getElementById(conten.nomconten).setAttribute("src", "" + conten.lib);
+									case 'lbtitrevue':
+									case 'lbsoustitrevue':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
 										break;
-										
+								}
+							}
+							document.getElementById('libiconvue').setAttribute("class", 'icon-feather-activity');
+							break;
+							
+						case 'editiontransactionswebadminis':	
+							for (const conten of contenus) 
+							{
+								switch(conten.nomconten)
+					            {
 									case 'titre':
+									case 'colnumordtransac':
+									case 'coltypetransac':
+									case 'coldatetransac':
+									case 'colmontantransac':
+									case 'coltauxtransac':
+									case 'colsenstransac':
+									case 'colintituletransac':
+									case 'colnomstransac':
+									case 'colnomstransac':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
 										break;
 								}
 							}
 							break;
 					}
-					break;
+					break;			
 					
-				case 'choixprofilconnexion':
+				case 'editiontransactionswallet':	
 					switch(nomcompo)
 		            {
-						case 'enteteconnexionweb':
-							for (const conten of contenus)
+						case 'menuwebadminis':	
+							for (const conten of contenus) 
 							{
 								switch(conten.nomconten)
 					            {
-									case 'logo':
-										document.getElementById(conten.nomconten).setAttribute("src", "" + conten.lib);
+									case 'lbdeconnexion':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
 										break;
 										
-									case 'titre':
+									case 'lbmenuprofils':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
+										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionprofils');
+										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
+										break;
+										
+									case 'lbmenuadministrateurs':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
+										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionadministrateurs');
+										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
+										break;
+										
+									case 'lbmenuwallets':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
+										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionwallets');
+										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
+										break;
+										
+									case 'lbmenuclients':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
+										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionclients');
+										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
+										break;
+										
+									case 'lbmenuagents':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
+										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionagents');
+										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
+										break;
+										
+									case 'lbmenutransactions':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+										break;
+								}
+							}
+							const menuBtn = document.querySelector("#menu-btn");
+    						menuBtn.addEventListener('click', () => {sidemenu.style.display = 'block';})
+    						const closeBtn = document.querySelector("#close-btn");
+    						closeBtn.addEventListener('click', () => {sidemenu.style.display = 'none';})
+							break;
+							
+						case 'enteteditiontransactionswalletwebadminis':	
+							for (const conten of contenus) 
+							{
+								switch(conten.nomconten)
+					            {
+									case 'lbtitrevue':
+									case 'lbsoustitrevue':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
 										break;
 								}
 							}
+							document.getElementById('libiconvue').setAttribute("class", 'icon-feather-activity');
 							break;
 							
-						case 'formchoixprofilconnexionweb':
-							for (const conten of contenus)
+						case 'editiontransactionswalletwebadminis':	
+							for (const conten of contenus) 
 							{
 								switch(conten.nomconten)
 					            {
-									case 'soustitre':
+									case 'titrelistranswallet':
+									case 'colnumordtranswallet':
+									case 'coltypetranswallet':
+									case 'coldatetranswallet':
+									case 'colmontantranswallet':
+									case 'coltauxtranswallet':
+									case 'colsenstranswallet':
+									case 'colintituletranswallet':
+									case 'colnomstranswallet':
+									case 'colnomstranswallet':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
-										break;
-										
-									// case 'lbprofils':
-									// 	document.getElementById(conten.nomconten).innerText = conten.lib;
-									// 	break;
-										
-									case 'liboption0profils':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										break;
-										
-									case 'valbtnvalider':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										console.log(conten.lib)
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'validerconnexion');
-										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										break;
-										
-									case 'valbtnannuler':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										console.log(conten.lib)
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'annulerconnexion');
-										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
 										break;
 								}
 							}
 							break;
 					}
-					break;
+					break;	
 			}
-		break;
+		break;		
 	}
 }
 
-function supprimercontainer(idcontainer)
+function supprimercontainer(idcontainer) 
 {
     var contentdiv = document.getElementById(idcontainer);
-    if (contentdiv !== null)
+    if (contentdiv !== null) 
     {
         contentdiv.remove();
     }
@@ -149,11 +202,11 @@ function supprimercontainer(idcontainer)
 
 function demasquercomposant(nomcomposant, bool)
 {
-	if (!bool)
+	if (!bool) 
 	{
         document.getElementById(nomcomposant).setAttribute("style", "padding: 0; display: none;");
-    }
-    else
+    } 
+    else 
     {
         document.getElementById(nomcomposant).setAttribute("style", "padding: 0; display: block;");
     }
@@ -163,13 +216,13 @@ function mettreajourselectlist(selectid, data)
 {
 	var select = document.getElementById(selectid);
 	var length = select.options.length;
-	for (i = length-1; i > 0; i--)
+	for (i = length-1; i > 0; i--) 
 	{
-	select.remove(i);
+	  select.remove(i);
 	}
 	var opt = null;
-	for (conten of data)
-	{
+	for (conten of data) 
+	{ 
         opt = document.createElement('option');
         opt.value = conten.codesptrav;
         opt.textContent = conten.nomprofil;
@@ -178,6 +231,476 @@ function mettreajourselectlist(selectid, data)
 	select.selectedIndex = 0;
 	select.setAttribute("data-action", 'setcodesptrav');
 	select.addEventListener("change", traiterevenform);
+}
+
+function mettreajourprofilutilis(connexion)
+{
+	document.getElementById('username').innerText = connexion.nomcompte;
+}
+
+function remplirformulaire(formid, data)
+{
+	switch(formid)
+    {
+		case 'editiontransaction':
+       		for (const item in data) 
+	       	{
+	       		switch(item)
+	            {
+					case 'codetrans':
+					case 'nomcommis':
+					case 'datetrans':
+					case 'descrtrans':
+					case 'senstrans':
+					case 'montantrans':
+					case 'tauxcommis':
+					case 'fraistrans':
+					case 'totaltrans':
+					case 'statutrans':
+					case 'nomsutilistrans':
+					case 'intitulewalletrans':
+					case 'soldewalletrans':
+					case 'nouveausoldetrans':
+					case 'nomsmomo':
+					case 'numtelmomo':
+					case 'opermomo':
+					case 'paysmomo':
+					case 'nomsutilispart':
+					case 'intitulewalletpart':
+						document.getElementById(item).value = data[item];
+						break;
+				}			  
+			}
+	        break;
+	        
+        case 'editionwallet':
+        	
+       		for (const item in data) 
+	       	{
+	       		switch(item)
+	            {
+					case 'codewallet':
+						const transwalletBtn = document.querySelector("#editranswallet");
+						transwalletBtn.setAttribute("data-action", 'initialiserunevuetype2');
+						transwalletBtn.setAttribute("data-nomvue", 'editiontransactionswallet');
+						transwalletBtn.setAttribute("data-libcode", 'codewallet');
+						transwalletBtn.setAttribute("data-valcode", data[item]);
+						transwalletBtn.addEventListener("click", traiterevenform);
+						transwalletBtn.addEventListener("dblclick", traiterevenform);
+						document.getElementById(item).value = data[item];
+						break;
+					case 'intitulewallet':
+					case 'soldewallet':
+					case 'statutwallet':
+					case 'codeclientwallet':
+					case 'typeutiliswallet':
+					case 'nomsutiliswallet':
+					case 'numtelutiliswallet':
+					case 'emailutiliswallet':
+					case 'statutcomptewallet':
+						document.getElementById(item).value = data[item];
+						break;
+				}			  
+			}
+	        break;
+	}
+}
+
+function mettreajourtable(tableid, data)
+{
+	switch(tableid)
+    {
+		case 'profils':
+			var table = document.getElementById(tableid);
+			var tbody = document.createElement("tbody");
+			var j = 1;
+			data.forEach(item => 
+			{
+		        var tr = document.createElement("tr");
+		        tr.setAttribute('id', item.code);
+		        var td = document.createElement("td");
+		        td.setAttribute('class', 'text-center');
+		        td.innerText = j;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.nom;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.lib;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.nomesptrav;
+		        tr.appendChild(td);
+		        		        
+		        tbody.appendChild(tr);
+		        j = j + 1;
+		    });						
+			var anctbody = document.querySelector("table#" + tableid + ">tbody");
+			if (anctbody !== null) 
+		    {
+		        table.removeChild(anctbody);
+		    }
+	    	table.appendChild(tbody);
+			break;	
+			
+		case 'administrateurs':
+			var table = document.getElementById(tableid);
+			var tbody = document.createElement("tbody");
+			var j = 1;
+			data.forEach(item => 
+			{
+		        var tr = document.createElement("tr");
+		        tr.setAttribute('id', item.code);
+		        var td = document.createElement("td");
+		        td.setAttribute('class', 'text-center');
+		        td.innerText = j;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.noms;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.numtel;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.email;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        if(item.statut == '1')
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-check-circle');
+		        }
+		        else
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-lock');
+		        }
+		        td.appendChild(i);
+		        tr.appendChild(td);
+		        		        
+		        tbody.appendChild(tr);
+		        j = j + 1;
+		    });						
+			var anctbody = document.querySelector("table#" + tableid + ">tbody");
+			if (anctbody !== null) 
+		    {
+		        table.removeChild(anctbody);
+		    }
+	    	table.appendChild(tbody);
+			break;	
+			
+		case 'wallets':
+			var table = document.getElementById(tableid);
+			var tbody = document.createElement("tbody");
+			var j = 1;
+			data.forEach(item => 
+			{
+		        var tr = document.createElement("tr");	        
+				tr.setAttribute("data-action", 'initialiserunevuetype2');
+				tr.setAttribute("data-nomvue", 'editionwalletedit');
+				tr.setAttribute("data-libcode", 'codewallet');
+				tr.setAttribute("data-valcode", item.code);
+				tr.addEventListener("click", traitereventable);
+				tr.addEventListener("dblclick", traitereventable);
+		        var td = document.createElement("td");
+		        td.setAttribute('class', 'text-center');
+		        td.innerText = j;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.intitule;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.solde;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.noms;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.numtel;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.email;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        if(item.statut == '1')
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-check-circle');
+		        }
+		        else
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-lock');
+		        }
+		        td.appendChild(i);
+		        tr.appendChild(td);
+		        		        
+		        tbody.appendChild(tr);
+		        j = j + 1;
+		    });						
+			var anctbody = document.querySelector("table#" + tableid + ">tbody");
+			if (anctbody !== null) 
+		    {
+		        table.removeChild(anctbody);
+		    }
+	    	table.appendChild(tbody);
+			break;
+			
+		case 'clients':
+			var table = document.getElementById(tableid);
+			var tbody = document.createElement("tbody");
+			var j = 1;
+			data.forEach(item => 
+			{
+		        var tr = document.createElement("tr");
+		        tr.setAttribute('id', item.code);
+		        var td = document.createElement("td");
+		        td.setAttribute('class', 'text-center');
+		        td.innerText = j;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.noms;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.numtel;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.email;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        if(item.statut == '1')
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-check-circle');
+		        }
+		        else
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-lock');
+		        }
+		        td.appendChild(i);
+		        tr.appendChild(td);
+		        		        
+		        tbody.appendChild(tr);
+		        j = j + 1;
+		    });						
+			var anctbody = document.querySelector("table#" + tableid + ">tbody");
+			if (anctbody !== null) 
+		    {
+		        table.removeChild(anctbody);
+		    }
+	    	table.appendChild(tbody);
+			break;
+			
+		case 'agents':
+			var table = document.getElementById(tableid);
+			var tbody = document.createElement("tbody");
+			var j = 1;
+			data.forEach(item => 
+			{
+		        var tr = document.createElement("tr");
+		        tr.setAttribute('id', item.code);
+		        var td = document.createElement("td");
+		        td.setAttribute('class', 'text-center');
+		        td.innerText = j;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.noms;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.numtel;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.email;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        if(item.statut == '1')
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-check-circle');
+		        }
+		        else
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-lock');
+		        }
+		        td.appendChild(i);
+		        tr.appendChild(td);
+		        		        
+		        tbody.appendChild(tr);
+		        j = j + 1;
+		    });						
+			var anctbody = document.querySelector("table#" + tableid + ">tbody");
+			if (anctbody !== null) 
+		    {
+		        table.removeChild(anctbody);
+		    }
+	    	table.appendChild(tbody);
+			break;
+			
+		case 'transactions':
+			var table = document.getElementById(tableid);
+			var tbody = document.createElement("tbody");
+			var j = 1;
+			data.forEach(item => 
+			{
+		        var tr = document.createElement("tr");	        
+				tr.setAttribute("data-action", 'initialiserunevuetype2');
+				tr.setAttribute("data-nomvue", 'editiontransactionedit');
+				tr.setAttribute("data-libcode", 'codetrans');
+				tr.setAttribute("data-valcode", item.code);
+				tr.addEventListener("click", traitereventable);
+				tr.addEventListener("dblclick", traitereventable);
+		        var td = document.createElement("td");
+		        td.setAttribute('class', 'text-center');
+		        td.innerText = j;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.type;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.date;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.montant;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.taux;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.sens;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.intitule;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.noms;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        if(item.statut == '1')
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-check-circle');
+		        }
+		        else
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-lock');
+		        }
+		        td.appendChild(i);
+		        tr.appendChild(td);
+		        		        
+		        tbody.appendChild(tr);
+		        j = j + 1;
+		    });						
+			var anctbody = document.querySelector("table#" + tableid + ">tbody");
+			if (anctbody !== null) 
+		    {
+		        table.removeChild(anctbody);
+		    }
+	    	table.appendChild(tbody);	    	
+			break;
+			
+		case 'transactionswallet':
+			var table = document.getElementById(tableid);
+			var tbody = document.createElement("tbody");
+			var j = 1;
+			data.forEach(item => 
+			{
+		        var tr = document.createElement("tr");	        
+				tr.setAttribute("data-action", 'initialiserunevuetype2');
+				tr.setAttribute("data-nomvue", 'editiontransactionedit');
+				tr.setAttribute("data-libcode", 'codetrans');
+				tr.setAttribute("data-valcode", item.code);
+				tr.addEventListener("click", traitereventable);
+				tr.addEventListener("dblclick", traitereventable);
+		        var td = document.createElement("td");
+		        td.setAttribute('class', 'text-center');
+		        td.innerText = j;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.type;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.date;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.montant;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.taux;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.sens;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.intitule;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        td.innerText = item.noms;
+		        tr.appendChild(td);
+		        
+		        td = document.createElement("td");
+		        if(item.statut == '1')
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-check-circle');
+		        }
+		        else
+		        {
+		        	var i = document.createElement("i");
+		        	i.setAttribute('class', 'icon-feather-lock');
+		        }
+		        td.appendChild(i);
+		        tr.appendChild(td);
+		        		        
+		        tbody.appendChild(tr);
+		        j = j + 1;
+		    });						
+			var anctbody = document.querySelector("table#" + tableid + ">tbody");
+			if (anctbody !== null) 
+		    {
+		        table.removeChild(anctbody);
+		    }
+	    	table.appendChild(tbody);	    	
+			break;
+	}
 }
 
 function viderformidentificationweb() 
@@ -239,7 +762,7 @@ function rendermessage(msg, type)
     })
 }
 
-function buildoperatinloader()
+function buildoperatinloader() 
 {
     var contentviewloader = document.getElementById('loader');
 

@@ -22,6 +22,7 @@ function traiterevensrvapp(e)
 							sessionStorage.setItem('sidxhr', resp.body.data.sidxhr);
 							sessionStorage.setItem('nomesptrav', resp.body.data.nomesptrav);
 							sessionStorage.setItem('nomvue', resp.body.data.vuecourante.nomvue);
+							mettreajourprofilutilis(resp.body.data.connexion);
 							construirevue(resp.body.data.nomesptrav, resp.body.data.vuecourante.nomvue);
 							var nomcompos = '';
 							var i = 0;
@@ -46,40 +47,56 @@ function traiterevensrvapp(e)
 							initialisercomposant();						
 							break;
 							
-						case 'signalersucces':
+						case 'redirigerversconnexion':	
+							location.href = resp.body.data.url;
+							break;
+							
+						case 'signalersucces':	
 							switch(resp.body.data.categorie)
-							{
-								case 'succescmdesidentifier':	
-									rendermessage(resp.body.data.msg, 1);										
-									mettreajourselectlist('profils', resp.body.data.profils)
-									supprimercontainer('loaderblock');
-									setdata('codecompte', resp.body.data.codecompte);
-									var data = new FormData();
-									data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-									data.append('action', "initialiserunevue");
-									data.append('nomesptrav', sessionStorage.getItem("nomesptrav"));
-									data.append('nomvue', 'choixprofilconnexion');
-									envoyerequete(data);
+							{	
+								case 'succescmdeobtenirlesprofils':
+									mettreajourtable('profils', resp.body.data.profils);
+									//supprimercontainer('loaderblock');
 									break;
 									
-								case 'succescmdeannulerconnexion':	
-									rendermessage(resp.body.data.msg, 1);	
-									viderformulaire('identificationweb');	
-									supprimercontainer('loaderblock');
-									var data = new FormData();
-									data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-									data.append('action', "initialiserunevue");
-									data.append('nomesptrav', sessionStorage.getItem("nomesptrav"));
-									data.append('nomvue', 'identificationcompte');
-									envoyerequete(data);
+								case 'succescmdeobtenirlesadministrateurs':
+									mettreajourtable('administrateurs', resp.body.data.administrateurs);
+									//supprimercontainer('loaderblock');
 									break;
 									
-								case 'succescmdevaliderconnexion':	
-									rendermessage(resp.body.data.msg, 1);
-									supprimercontainer('loaderblock');									
-									location.href = resp.body.data.lienesptrav + '/index.html?conn=' + resp.body.data.codeconn;
-									viderformulaire('identificationweb');	
-									ouvrir(document.body.id);
+								case 'succescmdeobtenirleswallets':
+									mettreajourtable('wallets', resp.body.data.wallets);
+									//supprimercontainer('loaderblock');
+									break;
+									
+								case 'succescmdeobtenirlesclients':
+									mettreajourtable('clients', resp.body.data.clients);
+									//supprimercontainer('loaderblock');
+									break;
+									
+								case 'succescmdeobtenirlesagents':
+									mettreajourtable('agents', resp.body.data.agents);
+									//supprimercontainer('loaderblock');
+									break;
+									
+								case 'succescmdeobtenirlestransactions':
+									mettreajourtable('transactions', resp.body.data.transactions);
+									//supprimercontainer('loaderblock');
+									break;
+									
+								case 'succescmdeobtenirunetransaction':
+									remplirformulaire('editiontransaction', resp.body.data.transaction);
+									//supprimercontainer('loaderblock');
+									break;
+									
+								case 'succescmdeobtenirunwallet':
+									remplirformulaire('editionwallet', resp.body.data.wallet);
+									//supprimercontainer('loaderblock');
+									break;
+									
+								case 'succescmdeobtenirlestransactionswallet':
+									mettreajourtable('transactionswallet', resp.body.data.transactions);
+									//supprimercontainer('loaderblock');
 									break;
 							}
 					}				
@@ -91,13 +108,22 @@ function traiterevensrvapp(e)
 						case 'signalerexception':	
 							switch(resp.body.data.categorie)
 							{
-								case 'echecinitesptrav':									
-								case 'echecmdesidentifier':
-								case 'echecmdeannulerconnexion':
-								case 'echecmdevaliderconnexion':
-								case 'echecvidersession':
-									rendermessage(resp.body.data.msg, 0);
-									supprimercontainer('loaderblock');
+								case 'echecinitesptrav':
+								case 'echecinitvue':
+								case 'echecinitcompo':
+								case 'echecmodiflang':
+								case 'echecsedeconn':
+								case 'echecmdeobtenirlesprofils':
+								case 'echecmdeobtenirlesadministrateurs':
+								case 'echecmdeobtenirleswallets':
+								case 'echecmdeobtenirlesclients':
+								case 'echecmdeobtenirlesagents':
+								case 'echecmdeobtenirlestransactions':
+								case 'echecmdeobtenirunetransaction':
+								case 'echecmdeobtenirunwallet':
+								case 'echecmdeobtenirlestransactionswallet':
+									//rendermessage(resp.body.data.msg, 0);
+									//supprimercontainer('loaderblock');
 									break;
 							}
 					}
@@ -105,7 +131,8 @@ function traiterevensrvapp(e)
 			}
 			catch(err)
 			{
-				rendermessage(err, 0);
+				//rendermessage(err, 0);
+				//supprimercontainer('loaderblock');
 			}
             break;
     }
@@ -113,9 +140,7 @@ function traiterevensrvapp(e)
 
 function envoyerequete(data)
 {
-	XHR.open('POST', 'https://appliwisocash.sowitelsrv.com/control');
-	/*XHR.open('POST', 'https://appzcash.bsiges.com/control');*/
-	/*XHR.open('POST', 'https://appangarapay.bsiges.com/control');*/
+	XHR.open('POST', 'https://appliwebservey.sowitelsrv.com/control');
 	XHR.send(data);
 }
 
@@ -147,44 +172,15 @@ function ouvrir(pnomesptrav)
 	envoyerequete(data);
 }
 
-function sidentifier()
-{
-	buildoperatinloader();
-	if(loginetmdpnonvide())
-	{
-		var data = new FormData();
-		data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-		data.append('action', "cmdesidentifier");
-		data.append('login', getdata('login'));
-		data.append('mdp', getdata('mdp'));
-		envoyerequete(data);
-	}
-	else
-	{
-		rendermessage("Les données saisies sont incoherentes.", 0);
-		supprimercontainer('loaderblock');
-	}
-}
-
-function loginetmdpnonvide()
-{
-	if(getdata('login') === null || getdata('mdp') === null)
-	{
-		return false;
-	}
-	
-	return true;
-}
-
-function viderformulaire(pnomform)
-{			
-	sessionStorage.removeItem('codesptrav');
-	if(pnomform == 'identificationweb')
-	{		
-		sessionStorage.removeItem('login');	
-		sessionStorage.removeItem('mdp');
-		viderformidentificationweb();
-	}
+function initialiserunevue(pnomvue)
+{	
+	//buildoperatinloader();
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', "initialiserunevue");
+	data.append('nomesptrav', getdata('nomesptrav'));
+	data.append('nomvue', pnomvue);
+	envoyerequete(data);
 }
 
 function initialisercomposant()
@@ -207,25 +203,160 @@ function initialisercomposant()
 			envoyerequete(data);
 		}
 	}
+	else
+	{
+		switch(getdata('nomvue'))
+	    {
+			case 'editionprofils':	
+				editerlesprofils();
+				break;	
+				
+			case 'editionadministrateurs':	
+				editerlesadministrateurs();
+				break;	
+				
+			case 'editionwallets':	
+				editerleswallets();
+				break;
+				
+			case 'editionclients':	
+				editerlesclients();
+				break;
+				
+			case 'editionagents':	
+				editerlesagents();
+				break;
+				
+			case 'editiontransactions':	
+				editerlestransactions();
+				break;
+				
+			case 'editiontransactionedit':	
+				editerunetransaction(getdata('codetrans'));
+				break;
+				
+			case 'editionwalletedit':	
+				editerunwallet(getdata('codewallet'));
+				break;
+				
+			case 'editiontransactionswallet':	
+				editerlestransactionsunwallet(getdata('codewallet'));
+				break;
+		}
+	}
 }
 
-function annuler()
+function verifierconnexion(pnomesptrav, pcodeconn)
 {
-	buildoperatinloader();
+	//buildoperatinloader();
 	var data = new FormData();
-	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', "cmdeannulerconnexion");
+	data.append('action', "verifierlaconnexion");
+	data.append('nomesptrav', pnomesptrav);
+	data.append('codeconn', pcodeconn);
 	envoyerequete(data);
 }
 
-function valider()
+function sedeconnecter()
 {
-	buildoperatinloader();
+	//buildoperatinloader();
+	var data = new FormData();
+	data.append('action', "sedeconnecter");
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('codeconn', getdata('conn'));
+	envoyerequete(data);
+}
+
+function editerlesprofils()
+{
 	var data = new FormData();
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', "cmdevaliderconnexion");
-	data.append('codecompte', getdata('codecompte'));
-	data.append('codesptrav', getdata('codesptrav'));
+	data.append('action', 'cmdeobtenirlesprofils');
+	data.append('critere', "");
+	data.append('debut', 0);
+	data.append('limit', 100);
+	envoyerequete(data);
+}
+
+function editerlesadministrateurs()
+{
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', 'cmdeobtenirlesadministrateurs');
+	data.append('critere', "");
+	data.append('debut', 0);
+	data.append('limit', 100);
+	envoyerequete(data);
+}
+
+function editerleswallets()
+{
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', 'cmdeobtenirleswallets');
+	data.append('critere', "");
+	data.append('debut', 0);
+	data.append('limit', 100);
+	envoyerequete(data);
+}
+
+function editerlesclients()
+{
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', 'cmdeobtenirlesclients');
+	data.append('critere', "");
+	data.append('debut', 0);
+	data.append('limit', 100);
+	envoyerequete(data);
+}
+
+function editerlesagents()
+{
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', 'cmdeobtenirlesagents');
+	data.append('critere', "");
+	data.append('debut', 0);
+	data.append('limit', 100);
+	envoyerequete(data);
+}
+
+function editerlestransactions()
+{
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', 'cmdeobtenirlestransactions');
+	data.append('debut', 0);
+	data.append('limit', 100);
+	envoyerequete(data);
+}
+
+function editerunetransaction(pcodetrans)
+{
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', 'cmdeobtenirunetransaction');
+	data.append('codetrans', pcodetrans);
+	envoyerequete(data);
+}
+
+function editerunwallet(pcodewallet)
+{
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', 'cmdeobtenirunwallet');
+	data.append('codewallet', pcodewallet);
+	envoyerequete(data);
+}
+
+function editerlestransactionsunwallet(pcodewallet)
+{
+	var data = new FormData();
+	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
+	data.append('action', 'cmdeobtenirlestransactionswallet');
+	data.append('codewallet', pcodewallet);
+	data.append('debut', 0);
+	data.append('limit', 100);
 	envoyerequete(data);
 }
 
@@ -239,8 +370,15 @@ function traiterevenpage(e)
         	break;
             
         case 'complete':	
-            ouvrir(e.target.body.id);
-        	setlang(e.target.documentElement.lang);
+            setlang(e.target.documentElement.lang);
+        	var tab = document.URL.split('?');
+        	if(tab.length == 2)
+        	{
+				var prm =tab[1].split('=');
+				setdata(prm[0], prm[1]);
+        		history.replaceState(null, '', tab[0]);	
+			}        	
+            verifierconnexion(e.target.body.id, getdata('conn'));
             break;
     }
 	
@@ -256,65 +394,34 @@ function getdata(pkey)
 	return sessionStorage.getItem(pkey);
 }
 
-function setlogin(plogin)
-{
-	sessionStorage.setItem("login", plogin);
-}
-
-function getlogin()
-{
-	return sessionStorage.getItem("login");
-}
-
-function setmdp(pmdp)
-{
-	sessionStorage.setItem("mdp", pmdp);
-}
-
-function getmdp()
-{
-	return sessionStorage.getItem("mdp");
-}
-
-function setcodesptrav(pcodesptrav)
-{
-	sessionStorage.setItem("codesptrav", pcodesptrav);
-}
-
-function getcodesptrav()
-{
-	return sessionStorage.getItem("codesptrav");
-}
-
 function traiterevenform(e)
 {
 	e.preventDefault();	
-	var data = new FormData();
-	data.append('action', e.target.dataset.action);
 	switch(e.target.dataset.action)
 	{
-		case 'setlogin':
-			setdata('login', e.target.value);
-			break;			
-			
-		case 'setmdp':
-			setdata('mdp', e.target.value);
+		case 'sedeconnecter':
+			sedeconnecter();
 			break;
 			
-		case 'sidentifier':
-			sidentifier();
-			break;			
-			
-		case 'setcodesptrav':
-			setdata('codesptrav', e.target.value);
+		case 'initialiserunevue':
+			initialiserunevue(e.target.dataset.nomvue);
 			break;
 			
-		case 'annulerconnexion':
-			annuler();
+		case 'initialiserunevuetype2':
+			initialiserunevue(e.target.dataset.nomvue);
+			setdata(e.target.dataset.libcode, e.target.dataset.valcode);
 			break;
-			
-		case 'validerconnexion':
-			valider();
+	}	
+}
+
+function traitereventable(e)
+{
+	e.preventDefault();	
+	switch(e.target.parentNode.dataset.action)
+	{
+		case 'initialiserunevuetype2':
+			initialiserunevue(e.target.parentNode.dataset.nomvue);
+			setdata(e.target.parentNode.dataset.libcode, e.target.parentNode.dataset.valcode);
 			break;
 	}	
 }
