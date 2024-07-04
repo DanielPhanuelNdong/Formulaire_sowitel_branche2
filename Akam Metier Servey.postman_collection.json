@@ -1,0 +1,1615 @@
+{
+	"info": {
+		"_postman_id": "3a737089-8c6a-469e-b3ac-c4b50d129719",
+		"name": "Akam Metier Servey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13450315"
+	},
+	"item": [
+		{
+			"name": "initialiserdonnees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "initialiserdonnees",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/metier",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"metier"
+					]
+				},
+				"description": "Permet d'initialiser la base de données."
+			},
+			"response": [
+				{
+					"name": "initialiserdonnees",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "codeserv",
+									"value": "initialiserdonnees",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://metiersecuris.bsiges.com/akam/imetier.php",
+							"protocol": "https",
+							"host": [
+								"metiersecuris",
+								"bsiges",
+								"com"
+							],
+							"path": [
+								"akam",
+								"imetier.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 23 Nov 2023 18:56:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.37 (rocky) OpenSSL/1.1.1k"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.33"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 0,\n    \"head\": true,\n    \"type\": 1,\n    \"body\": {\n        \"msg\": \"succesinitdata\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "viderdonnees",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "viderdonnees",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/metier",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"metier"
+					]
+				},
+				"description": "Permet de vider la base de données."
+			},
+			"response": [
+				{
+					"name": "viderdonnees",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "codeserv",
+									"value": "viderdonnees",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://metiersecuris.bsiges.com/akam/imetier.php",
+							"protocol": "https",
+							"host": [
+								"metiersecuris",
+								"bsiges",
+								"com"
+							],
+							"path": [
+								"akam",
+								"imetier.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 23 Nov 2023 18:55:02 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.37 (rocky) OpenSSL/1.1.1k"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.33"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 0,\n    \"head\": true,\n    \"type\": 1,\n    \"body\": {\n        \"msg\": \"succesvidedata\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "obtenirlesresposerveys",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlesresposerveys",
+							"type": "default"
+						},
+						{
+							"key": "critere",
+							"value": "",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "default"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/utilisateur",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"utilisateur"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "identifieruncompte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "identifieruncompte",
+							"type": "default"
+						},
+						{
+							"key": "login",
+							"value": "resposervey@sowitelgroup.com",
+							"type": "default"
+						},
+						{
+							"key": "mdp",
+							"value": "resposervey",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/securite",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"securite"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirlesresponsables",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlesresponsables",
+							"type": "default"
+						},
+						{
+							"key": "critere",
+							"value": "",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "default"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/utilisateur",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"utilisateur"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirunresposervey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirunresposervey",
+							"type": "default"
+						},
+						{
+							"key": "coderesposerv",
+							"value": "reser272024000000001",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/utilisateur",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"utilisateur"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirunresposerveycompte",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirunresposerveycompte",
+							"type": "default"
+						},
+						{
+							"key": "codecompte",
+							"value": "cpte3720240000000001",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/utilisateur",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"utilisateur"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirunresponsable",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirunresponsable",
+							"type": "default"
+						},
+						{
+							"key": "coderespo",
+							"value": "respo272024000000001",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/utilisateur",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"utilisateur"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirlistecontinent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlistecontinent",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "fra",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/domaine",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"domaine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirlistepays",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlistepays",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "fra",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "codenomen",
+							"value": "nomen372024000000001",
+							"type": "text"
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/domaine",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"domaine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirlistepaysafrique",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlistepaysafrique",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "fra",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/domaine",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"domaine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirlisteoperateur",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlisteoperateur",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "fra",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "codenomen",
+							"value": "nomen372024000000007",
+							"type": "text"
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/domaine",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"domaine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirlisteville",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlisteville",
+							"type": "text"
+						},
+						{
+							"key": "lang",
+							"value": "fra",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "codenomen",
+							"value": "nomen372024000000007",
+							"type": "text"
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/domaine",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"domaine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirleserveys",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirleserveys",
+							"type": "default"
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "default"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "default"
+						},
+						{
+							"key": "critere",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirleserveysresposervey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirleserveysresposervey",
+							"type": "default"
+						},
+						{
+							"key": "coderesposerv",
+							"value": "reser372024000000001",
+							"type": "default"
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "default"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "default"
+						},
+						{
+							"key": "critere",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creerunservey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "creerunservey",
+							"type": "text"
+						},
+						{
+							"key": "nomreseau",
+							"value": "Wifi rdc 5",
+							"type": "text"
+						},
+						{
+							"key": "dateservey",
+							"value": "2024-08-24",
+							"type": "text"
+						},
+						{
+							"key": "codepays",
+							"value": "nomen372024000000007",
+							"type": "text"
+						},
+						{
+							"key": "codeville",
+							"value": "nomen372024000000041",
+							"type": "text"
+						},
+						{
+							"key": "clientmobile",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "clientbtob",
+							"value": "59",
+							"type": "text"
+						},
+						{
+							"key": "nomsite",
+							"value": "Cite lumiere",
+							"type": "text"
+						},
+						{
+							"key": "immeuble",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "hauteur",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "dalle",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "descrdalle",
+							"value": "bon etat",
+							"type": "text"
+						},
+						{
+							"key": "sourcelectrique",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "priseterre",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "operateurs",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "codesoperateurs",
+							"value": "{nomen372024000000073,nomen372024000000072,nomen372024000000071}",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "-5.79949",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "13.44068",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Matadi, Bas-Congo, RDC",
+							"type": "text"
+						},
+						{
+							"key": "descrenviron",
+							"value": "RAS",
+							"type": "text"
+						},
+						{
+							"key": "coderesposerv",
+							"value": "reser372024000000001",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				},
+				"description": "Permet d'enregistrer un conducteur."
+			},
+			"response": [
+				{
+					"name": "creerenregistrementconducteur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "codeserv",
+									"value": "creerenregistrementconducteur",
+									"type": "text"
+								},
+								{
+									"key": "noms",
+									"value": "Mimbe Akam",
+									"type": "text"
+								},
+								{
+									"key": "prenoms",
+									"value": "Paule Juvet",
+									"type": "text"
+								},
+								{
+									"key": "numtel",
+									"value": "+237657922665",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mimbakam@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "mdp",
+									"value": "staetousta",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://metiersecuris.bsiges.com/akam/iutilisateur.php",
+							"protocol": "https",
+							"host": [
+								"metiersecuris",
+								"bsiges",
+								"com"
+							],
+							"path": [
+								"akam",
+								"iutilisateur.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 23 Nov 2023 18:56:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.37 (rocky) OpenSSL/1.1.1k"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.33"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 0,\n    \"head\": true,\n    \"type\": 3,\n    \"body\": {\n        \"codeenreg\": \"enreg231120230000001\",\n        \"codeconfirm\": \"658744\",\n        \"mail\": \"succesenvoiemail\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "obtenirunservey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirunservey",
+							"type": "default"
+						},
+						{
+							"key": "codeservey",
+							"value": "serve372024000000002",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimerunservey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "supprimerunservey",
+							"type": "default"
+						},
+						{
+							"key": "codeservey",
+							"value": "serve372024000000001",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifierunservey",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "codeserv",
+							"value": "modifierunservey",
+							"type": "text"
+						},
+						{
+							"key": "nomreseau",
+							"value": "Wifi Connecte",
+							"type": "text"
+						},
+						{
+							"key": "dateservey",
+							"value": "2024-08-15",
+							"type": "text"
+						},
+						{
+							"key": "codepays",
+							"value": "nomen372024000000007",
+							"type": "text"
+						},
+						{
+							"key": "codeville",
+							"value": "nomen372024000000042",
+							"type": "text"
+						},
+						{
+							"key": "clientmobile",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "clientbtob",
+							"value": "59",
+							"type": "text"
+						},
+						{
+							"key": "nomsite",
+							"value": "ISTA Matadi",
+							"type": "text"
+						},
+						{
+							"key": "immeuble",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "hauteur",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "dalle",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "descrdalle",
+							"value": "bon etat",
+							"type": "text"
+						},
+						{
+							"key": "sourcelectrique",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "priseterre",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "operateurs",
+							"value": "yes",
+							"type": "text"
+						},
+						{
+							"key": "codesoperateurs",
+							"value": "{nomen372024000000073,nomen372024000000072}",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "-5.79949",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "13.44068",
+							"type": "text"
+						},
+						{
+							"key": "adresse",
+							"value": "Matadi, Bas-Congo, RDC",
+							"type": "text"
+						},
+						{
+							"key": "descrenviron",
+							"value": "RAS",
+							"type": "text"
+						},
+						{
+							"key": "codeservey",
+							"value": "serve472024000000002",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				},
+				"description": "Permet d'enregistrer un conducteur."
+			},
+			"response": [
+				{
+					"name": "creerenregistrementconducteur",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "codeserv",
+									"value": "creerenregistrementconducteur",
+									"type": "text"
+								},
+								{
+									"key": "noms",
+									"value": "Mimbe Akam",
+									"type": "text"
+								},
+								{
+									"key": "prenoms",
+									"value": "Paule Juvet",
+									"type": "text"
+								},
+								{
+									"key": "numtel",
+									"value": "+237657922665",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "mimbakam@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "mdp",
+									"value": "staetousta",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://metiersecuris.bsiges.com/akam/iutilisateur.php",
+							"protocol": "https",
+							"host": [
+								"metiersecuris",
+								"bsiges",
+								"com"
+							],
+							"path": [
+								"akam",
+								"iutilisateur.php"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 23 Nov 2023 18:56:42 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.37 (rocky) OpenSSL/1.1.1k"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.4.33"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Connection",
+							"value": "Keep-Alive"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 0,\n    \"head\": true,\n    \"type\": 3,\n    \"body\": {\n        \"codeenreg\": \"enreg231120230000001\",\n        \"codeconfirm\": \"658744\",\n        \"mail\": \"succesenvoiemail\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "obtenirlesoperateursunsite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlesoperateursunsite",
+							"type": "default"
+						},
+						{
+							"key": "codesite",
+							"value": "site3720240000000002",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirlesphotosunsite",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirlesphotosunsite",
+							"type": "default"
+						},
+						{
+							"key": "codesite",
+							"value": "site4720240000000002",
+							"type": "default"
+						},
+						{
+							"key": "debut",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "limit",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "creerunephoto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "creerunephoto",
+							"type": "default"
+						},
+						{
+							"key": "codesite",
+							"value": "site4720240000000002",
+							"type": "text"
+						},
+						{
+							"key": "descrphoto",
+							"value": "description de la photo logo-mini",
+							"type": "default"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "postman-cloud:///1ef2406f-b8d7-4450-ab7c-4393b7da47ce"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenirunephoto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "obtenirunephoto",
+							"type": "default"
+						},
+						{
+							"key": "codephoto",
+							"value": "photo372024000000002",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "supprimerunephoto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "supprimerunephoto",
+							"type": "default"
+						},
+						{
+							"key": "codephoto",
+							"value": "photo472024000000002",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifierunephoto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "modifierunephoto",
+							"type": "default"
+						},
+						{
+							"key": "codephoto",
+							"value": "photo372024000000003",
+							"type": "text"
+						},
+						{
+							"key": "descrphoto",
+							"value": "description de la photo logo modifie",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifierlefichierunephoto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "modifierlefichierunephoto",
+							"type": "default"
+						},
+						{
+							"key": "codephoto",
+							"value": "photo372024000000003",
+							"type": "default"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "postman-cloud:///1ef234c3-7df4-4340-bb0a-f19a4e59d557"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/servey",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"servey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sedeconnecter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "codeserv",
+							"value": "sedeconnecter",
+							"type": "default"
+						},
+						{
+							"key": "codeconn",
+							"value": "conn3720240000000002",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://metierservey.sowitelsrv.com/securite",
+					"protocol": "https",
+					"host": [
+						"metierservey",
+						"sowitelsrv",
+						"com"
+					],
+					"path": [
+						"securite"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

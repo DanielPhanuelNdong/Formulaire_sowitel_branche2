@@ -379,7 +379,7 @@ function traiterevenpage(e)
 				var prm =tab[1].split('=');
 				setdata(prm[0], prm[1]);
         		history.replaceState(null, '', tab[0]);	
-			}        	
+			}
             verifierconnexion(e.target.body.id, getdata('conn'));
             break;
     }

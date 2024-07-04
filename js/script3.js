@@ -59,8 +59,18 @@ function traiterevensrvapp(e)
 									//supprimercontainer('loaderblock');
 									break;
 									
-								// case 'succescmdeobtenirlesadministrateurs':
-								// 	mettreajourtable('administrateurs', resp.body.data.administrateurs);
+								case 'succescmdeobtenirlistepays':
+									mettreajourselectlist('idpays', resp.body.data.listepays);
+									//supprimercontainer('loaderblock');
+									break;
+
+								// case 'succescmdeobtenirlisteville':
+								// 	mettreajourselectlist('ville', resp.body.data.listeville);
+								// 	//supprimercontainer('loaderblock');
+								// 	break;
+
+								// case 'succescmdeobtenirlisteoperateur':
+								// 	mettreajourselectlist('ville', resp.body.data.listeoperateur);
 								// 	//supprimercontainer('loaderblock');
 								// 	break;
 									
@@ -182,7 +192,9 @@ function initialisercomposant()
 				editerleserveys();
 				break;	
 				
-			
+			case 'creationservey':	
+				cmdeobtenirlistepays();
+				break;
 		}
 	}
 }
@@ -384,4 +396,34 @@ function traitereventable(e)
 			setdata(e.target.parentNode.dataset.libcode, e.target.parentNode.dataset.valcode);
 			break;
 	}	
+}
+
+// fonction pour ooobtenir la listes des pays 
+function cmdeobtenirlistepays()
+{
+	var data = new FormData();
+    data.append('codeserv', "cmdeobtenirlistepays");
+    envoyerequete(data);
+}
+
+//fonction pour obtenir la liste des operateurs
+function cmdeobtenirlisteoperateurs()
+{
+	var data = new FormData();
+    data.append('codeserv', "obtenirlisteoperateur");
+	data.append('codenomen', "nomen372024000000007");
+	data.append('debut', "0");
+	data.append('limit', "100");
+    envoyerequete(data);
+}
+
+//fonction pour obtenir la liste des villes
+function cmdeobtenirlistevilles()
+{
+	var data = new FormData();
+    data.append('codeserv', "obtenirlisteville");
+	data.append('codenomen', "nomen372024000000007");
+	data.append('debut', "0");
+	data.append('limit', "100");
+    envoyerequete(data);
 }

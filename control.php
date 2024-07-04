@@ -498,7 +498,7 @@ switch ($action)
     case 'cmdeobtenirleserveys':
         try
         {
-            $_SESSION['document']->cmdeobtenirleserveys(trim($_POST['coderesposerv']), isset($_POST['critere']) ? trim($_POST['critere']) : NULL, trim($_POST['debut']), trim($_POST['limit']));
+            $_SESSION['document']->cmdeobtenirleserveys(isset($_POST['critere']) ? trim($_POST['critere']) : NULL, trim($_POST['debut']), trim($_POST['limit']));
             $body = [
                 'action' => "signalersucces",
                 'data' => [
@@ -544,6 +544,93 @@ switch ($action)
             $body = [
                 'action' => "signalerexception",
                 'data' => ['categorie' => 'echecmdeobtenirunservey', 'msg' => $e->getMessage(),
+                    'sidxhr' => is_null($id_from_xhr) ? session_id() : $id_from_xhr
+                ]
+            ];
+            $data = new result(4, $body);
+        }
+        
+        echo json_encode($data, JSON_UNESCAPED_SLASHES || JSON_UNESCAPED_UNICODE);
+        exit();
+        
+    case 'cmdeobtenirlistepays':
+        try
+        {
+            $_SESSION['document']->cmdeobtenirlistepays();
+            $body = [
+                'action' => "signalersucces",
+                'data' => [
+                    'categorie' => "succescmdeobtenirlistepays",
+                    'msg' => utf8_encode("Liste pays chargée avec succès."),
+                    'listepays' => $_SESSION['document']->obtenirlistepays(),
+                    'sidxhr' => is_null($id_from_xhr) ? session_id() : $id_from_xhr
+                ]
+            ];
+            $data = new result(3, $body);
+        }
+        catch (\Exception $e)
+        {
+            $body = [
+                'action' => "signalerexception",
+                'data' => ['categorie' => 'echecmdeobtenirlistepays', 'msg' => $e->getMessage(),
+                    'sidxhr' => is_null($id_from_xhr) ? session_id() : $id_from_xhr
+                ]
+            ];
+            $data = new result(4, $body);
+        }
+        
+        echo json_encode($data, JSON_UNESCAPED_SLASHES || JSON_UNESCAPED_UNICODE);
+        exit();
+        
+    case 'cmdeobtenirlisteville':
+        try
+        {
+            $_SESSION['document']->cmdeobtenirlisteville(trim($_POST['codepays']));
+            $body = [
+                'action' => "signalersucces",
+                'data' => [
+                    'categorie' => "succescmdeobtenirlisteville",
+                    'msg' => utf8_encode("Liste ville chargée avec succès."),
+                    'listeville' => $_SESSION['document']->obtenirlisteville(),
+                    'sidxhr' => is_null($id_from_xhr) ? session_id() : $id_from_xhr
+                ]
+            ];
+            $data = new result(3, $body);
+        }
+        catch (\Exception $e)
+        {
+            $body = [
+                'action' => "signalerexception",
+                'data' => ['categorie' => 'echecmdeobtenirlisteville', 'msg' => $e->getMessage(),
+                    'sidxhr' => is_null($id_from_xhr) ? session_id() : $id_from_xhr
+                ]
+            ];
+            $data = new result(4, $body);
+        }
+        
+        echo json_encode($data, JSON_UNESCAPED_SLASHES || JSON_UNESCAPED_UNICODE);
+        exit();
+        
+    case 'cmdeobtenirlisteoperateur':
+        try
+        {
+            $_SESSION['document']->cmdeobtenirlisteoperateur(trim($_POST['codepays']));
+            $body = [
+                'action' => "signalersucces",
+                'data' => [
+                    'categorie' => "succescmdeobtenirlisteoperateur",
+                    'msg' => utf8_encode("Liste operateur chargée avec succès."),
+                    'listeoperateur' => $_SESSION['document']->obtenirlisteoperateur(),
+                    'sidxhr' => is_null($id_from_xhr) ? session_id() : $id_from_xhr
+                ]
+            ];
+            $data = new result(3, $body);
+        }
+        catch (\Exception $e)
+        {
+            $body = [
+                'action' => "signalerexception",
+                'data' => ['categorie' => 'echecmdeobtenirlisteoperateur', 'msg' => $e->getMessage(),
                     'sidxhr' => is_null($id_from_xhr) ? session_id() : $id_from_xhr
                 ]
             ];
