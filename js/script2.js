@@ -1,16 +1,21 @@
 function construirevue(nomesptrav, nomvue)
-{	
+{
 	switch(nomesptrav)
     {
 		case 'webresposervey':
 			document.getElementById('editionserveys').setAttribute("style", "padding: 0; display: none;");
+			document.getElementById('creationservey').setAttribute("style", "padding: 0; display: none;");
 			switch(nomvue)
             {
-				case 'editionserveys':	
+				case 'editionserveys':
+					document.getElementById(nomvue).setAttribute("style", "padding: 0; display: block;");
+					break;
+
+				case 'creationservey':
 					document.getElementById(nomvue).setAttribute("style", "padding: 0; display: block;");
 					break;
 			}
-		break;		
+		break;
 	}
 }
 
@@ -20,12 +25,12 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
     {
 		case 'webresposervey':
 			switch(nomvue)
-            {				
-				case 'editionserveys':	
+            {
+				case 'editionserveys':
 					switch(nomcompo)
 		            {
-						case 'sidebar':	
-							for (const conten of contenus) 
+						case 'sidebar':
+							for (const conten of contenus)
 							{
 								switch(conten.nomconten)
 					            {
@@ -37,58 +42,82 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 										
 									case 'lbgestionserveys':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+										document.getElementById(conten.nomconten).addEventListener("click", lbgestionserveyscosnteditionservey);
+										//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
 										break;
 								}
 							}
-							const menuBtn = document.querySelector("#menu-btn");
-    						menuBtn.addEventListener('click', () => {sidemenu.style.display = 'block';})
-    						const closeBtn = document.querySelector("#close-btn");
-    						closeBtn.addEventListener('click', () => {sidemenu.style.display = 'none';})
+							// const menuBtn = document.querySelector("#menu-btn");
+    						// menuBtn.addEventListener('click', () => {sidemenu.style.display = 'block';})
+    						// const closeBtn = document.querySelector("#close-btn");
+    						// closeBtn.addEventListener('click', () => {sidemenu.style.display = 'none';})
 							break;
 							
-						case 'enteteditiontransactionswebadminis':	
+						case 'gestionbar1':	
 							for (const conten of contenus) 
 							{
 								switch(conten.nomconten)
 					            {
-									case 'lbtitrevue':
-									case 'lbsoustitrevue':
+									case 'lbgestdeserveys':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+									case 'lbeditserveys':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+									case 'btncreerservey':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										document.getElementById(conten.nomconten).addEventListener("click", creerconstcreationservey);
+										break;
+								}
+							}
+							break;
+
+							case 'espacecontenair':	
+							for (const conten of contenus) 
+							{
+								switch(conten.nomconten)
+					            {
+									case 'lblistserveys':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
 										break;
 								}
 							}
-							document.getElementById('libiconvue').setAttribute("class", 'icon-feather-activity');
 							break;
 							
-						case 'editiontransactionswebadminis':	
+						case 'tableserveys':
 							for (const conten of contenus) 
 							{
 								switch(conten.nomconten)
 					            {
-									case 'titre':
-									case 'colnumordtransac':
-									case 'coltypetransac':
-									case 'coldatetransac':
-									case 'colmontantransac':
-									case 'coltauxtransac':
-									case 'colsenstransac':
-									case 'colintituletransac':
-									case 'colnomstransac':
-									case 'colnomstransac':
+									case 'colnumeros':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+									case 'colnomsites':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+									case 'colvilles':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+									case 'coldates':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+									case 'colpays':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										break;
+									case 'colnomreseaux':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
 										break;
 								}
 							}
 							break;
 					}
-					break;			
-					
-				case 'editiontransactionswallet':	
+					break;
+
+			    case 'creationservey':
 					switch(nomcompo)
-		            {
-						case 'menuwebadminis':	
-							for (const conten of contenus) 
+					{
+						case 'sidebar':
+							for (const conten of contenus)
 							{
 								switch(conten.nomconten)
 					            {
@@ -98,100 +127,300 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
 										break;
 										
-									case 'lbmenuprofils':
+									case 'lbgestionserveys':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
-										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionprofils');
-										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
-										break;
-										
-									case 'lbmenuadministrateurs':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
-										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionadministrateurs');
-										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
-										break;
-										
-									case 'lbmenuwallets':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
-										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionwallets');
-										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
-										break;
-										
-									case 'lbmenuclients':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
-										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionclients');
-										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
-										break;
-										
-									case 'lbmenuagents':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'initialiserunevue');
-										document.getElementById(conten.nomconten).setAttribute("data-nomvue", 'editionagents');
-										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										document.getElementById(conten.nomconten).parentNode.setAttribute('class', '');
-										break;
-										
-									case 'lbmenutransactions':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+										//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
 										break;
 								}
 							}
-							const menuBtn = document.querySelector("#menu-btn");
-    						menuBtn.addEventListener('click', () => {sidemenu.style.display = 'block';})
-    						const closeBtn = document.querySelector("#close-btn");
-    						closeBtn.addEventListener('click', () => {sidemenu.style.display = 'none';})
 							break;
-							
-						case 'enteteditiontransactionswalletwebadminis':	
-							for (const conten of contenus) 
+
+						case 'Entetecreatservey':
+							for (const conten of contenus)
 							{
 								switch(conten.nomconten)
-					            {
-									case 'lbtitrevue':
-									case 'lbsoustitrevue':
+								{
+									case 'lbnomsite':
 										document.getElementById(conten.nomconten).innerText = conten.lib;
+										// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
 										break;
-								}
+											
+									case 'lbpays':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+										break;
+
+									case 'lbville':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										break;
+
+									case 'lbdate':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										break;
+
+									case 'lbnomreseau':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										break;
+
+									case 'lbinfoservey':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+										break;
+
+									case 'placenomsite':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										break;
+
+									case 'placenomreseau':
+										document.getElementById(conten.nomconten).innerText = conten.lib;
+										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+										break;
+
+									
+									}
 							}
-							document.getElementById('libiconvue').setAttribute("class", 'icon-feather-activity');
 							break;
-							
-						case 'editiontransactionswalletwebadminis':	
-							for (const conten of contenus) 
+
+						case 'bdycreatservey1':
+							for (const conten of contenus)
+								{
+									switch(conten.nomconten)
+									{
+										case 'lbcarateristiques':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+												
+										case 'lbimmeuble':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+											break;
+	
+										case 'lbimbleoui':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbimblenon':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbhauteur':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbdalle':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+											break;
+	
+										case 'lbdaloui':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbdalnon':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbetatdal':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbsourcelect':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+											break;
+	
+										case 'lbsourcelectoui':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbsourcelectnon':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbpriseterre':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbpriseterreoui':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+											break;
+	
+										case 'lbpriseterrenon':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbcoordgps':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lboperateurexist':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lboperateurexistoui':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+											break;
+	
+										case 'lboperateurexistnon':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lboperateur':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'placehauteur':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'placelongitude':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'placetatdal':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'placelatitude':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'placeadresse':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+										}
+							}
+							break;
+
+						case 'bodycreatservey2':
+							for (const conten of contenus)
 							{
 								switch(conten.nomconten)
-					            {
-									case 'titrelistranswallet':
-									case 'colnumordtranswallet':
-									case 'coltypetranswallet':
-									case 'coldatetranswallet':
-									case 'colmontantranswallet':
-									case 'coltauxtranswallet':
-									case 'colsenstranswallet':
-									case 'colintituletranswallet':
-									case 'colnomstranswallet':
-									case 'colnomstranswallet':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										break;
-								}
+									{
+										case 'lbclientcible':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbmobile':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'lbBtoB':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+											break;
+	
+										case 'placembile':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+											break;
+	
+										case 'placeBtoB':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+
+										}
 							}
 							break;
+
+						case 'bodycreatservey3':
+							for (const conten of contenus)
+							{
+								switch(conten.nomconten)
+									{
+										case 'lbscanperiphwifi':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+	
+										case 'btnwifi':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+											
+										}
+							}
+							break;
+
+						case 'bodycreatservey4':
+							for (const conten of contenus)
+							{
+								switch(conten.nomconten)
+									{
+										case 'lbphotos':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+		
+										case 'btnphotos':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+
+										case 'placedescriptenviron':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+												
+										}
+							}
+							break;
+
+						case 'footercreatservey':
+							for (const conten of contenus)
+							{
+								switch(conten.nomconten)
+									{
+										case 'btnsoumcreatservey':
+											document.getElementById(conten.nomconten).innerText = conten.lib;
+											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+											break;
+									}
+							}
+							break;
+
 					}
-					break;	
 			}
-		break;		
+		break;
 	}
 }
 
-function supprimercontainer(idcontainer) 
+function supprimercontainer(idcontainer)
 {
     var contentdiv = document.getElementById(idcontainer);
     if (contentdiv !== null) 
@@ -308,49 +537,60 @@ function remplirformulaire(formid, data)
 
 function mettreajourtable(tableid, data)
 {
+	
+
 	switch(tableid)
     {
-		case 'profils':
+		
+		case 'serveys':
 			var table = document.getElementById(tableid);
 			var tbody = document.createElement("tbody");
 			var j = 1;
 			data.forEach(item => 
 			{
 		        var tr = document.createElement("tr");
-		        tr.setAttribute('id', item.code);
+		        tr.setAttribute('id', item.nomsite);
 		        var td = document.createElement("td");
 		        td.setAttribute('class', 'text-center');
 		        td.innerText = j;
 		        tr.appendChild(td);
 		        
 		        td = document.createElement("td");
-		        td.innerText = item.nom;
+		        td.innerText = item.nomsite;
 		        tr.appendChild(td);
 		        
 		        td = document.createElement("td");
-		        td.innerText = item.lib;
+		        td.innerText = item.nomreseau;
+		        tr.appendChild(td);
+
+				td = document.createElement("td");
+		        td.innerText = item.dateservey;
+		        tr.appendChild(td);
+
+				td = document.createElement("td");
+		        td.innerText = item.enumville;
 		        tr.appendChild(td);
 		        
 		        td = document.createElement("td");
-		        td.innerText = item.nomesptrav;
+		        td.innerText = item.enumpays;
 		        tr.appendChild(td);
 		        		        
 		        tbody.appendChild(tr);
 		        j = j + 1;
-		    });						
+		    });
 			var anctbody = document.querySelector("table#" + tableid + ">tbody");
-			if (anctbody !== null) 
+			if (anctbody !== null)
 		    {
 		        table.removeChild(anctbody);
 		    }
 	    	table.appendChild(tbody);
-			break;	
+			break;
 			
 		case 'administrateurs':
 			var table = document.getElementById(tableid);
 			var tbody = document.createElement("tbody");
 			var j = 1;
-			data.forEach(item => 
+			data.forEach(item =>
 			{
 		        var tr = document.createElement("tr");
 		        tr.setAttribute('id', item.code);

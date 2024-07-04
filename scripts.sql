@@ -185,7 +185,7 @@ vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Supprimer'),
 --la vue Créationservey contient egalement les composants Navbar et Sidebar
 
 vcodescompo[15] := cudcms.creationcomposant('Entetecreatservey', convert_from('Partie entete pour création du servey.', 'WIN1252'), null);
---ce composant contient tout le contenu de bodyservey1 d'aboord, plus d'autres elements tels;
+--ce composant contient tout le contenu de Enteteservey1 d'aboord, plus d'autres elements tels;
 vcodeconten := cudcms.creationcontenu('placenomsite', convert_from('Placeholder du nom du site.'), vcodescompo[15]);
 vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Nom du site'), vcodeconten);
 vcodeconten := cudcms.creationcontenu('placenomreseau', convert_from('Placeholder du nom du reseau.'), vcodescompo[15]);
@@ -207,7 +207,7 @@ vcodeconten := cudcms.creationcontenu('placeadresse', convert_from('Placeholder 
 vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Adresse'), vcodeconten);
 
 vcodescompo[17] := cudcms.creationcomposant('bodycreatservey2', convert_from('Partie body 2 pour création du servey.', 'WIN1252'), null);
---ce composant contient tout le contenu de bodyservey1 d'aboord, plus d'autres elements tels;
+--ce composant contient tout le contenu de bodyservey2 d'aboord, plus d'autres elements tels;
 vcodeconten := cudcms.creationcontenu('placembile', convert_from('Placeholder pour mobile.'), vcodescompo[17]);
 vcodevalconten := cudcms.creationvaleurcontenu('fra', convert_from('Mobile'), vcodeconten);
 vcodeconten := cudcms.creationcontenu('placeBtoB', convert_from('Placeholder pour B to B.'), vcodescompo[17]);

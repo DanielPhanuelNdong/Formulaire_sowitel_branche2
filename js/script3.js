@@ -7,7 +7,7 @@ function traiterevensrvapp(e)
 	switch (e.type) 
 	{
 		case 'timeout':
-            //signalerexception(null, "Chargement de la requete terminee. Timeout.");
+            signalerexception(null, "Chargement de la requete terminee. Timeout.");
             break;
             
 		case 'load':
@@ -35,7 +35,7 @@ function traiterevensrvapp(e)
 								else
 								{
 									nomcompos = nomcompos + ',' + composant.nomcompo;
-								}								
+								}
 								i = i + 1;
 							}
 							sessionStorage.setItem('nomcompos', nomcompos);
@@ -44,7 +44,7 @@ function traiterevensrvapp(e)
 							
 						case 'construireuncomposant':							
 							construirecomposant(sessionStorage.getItem("nomesptrav"), sessionStorage.getItem("nomvue"), resp.body.data.composant.nomcompo, resp.body.data.composant.contenus);
-							initialisercomposant();						
+							initialisercomposant();
 							break;
 							
 						case 'redirigerversconnexion':	
@@ -53,51 +53,21 @@ function traiterevensrvapp(e)
 							
 						case 'signalersucces':	
 							switch(resp.body.data.categorie)
-							{	
-								case 'succescmdeobtenirlesprofils':
-									mettreajourtable('profils', resp.body.data.profils);
+							{
+								case 'succescmdeobtenirleserveys':
+									mettreajourtable('serveys', resp.body.data.serveys);
 									//supprimercontainer('loaderblock');
 									break;
 									
-								case 'succescmdeobtenirlesadministrateurs':
-									mettreajourtable('administrateurs', resp.body.data.administrateurs);
-									//supprimercontainer('loaderblock');
-									break;
+								// case 'succescmdeobtenirlesadministrateurs':
+								// 	mettreajourtable('administrateurs', resp.body.data.administrateurs);
+								// 	//supprimercontainer('loaderblock');
+								// 	break;
 									
-								case 'succescmdeobtenirleswallets':
-									mettreajourtable('wallets', resp.body.data.wallets);
-									//supprimercontainer('loaderblock');
-									break;
-									
-								case 'succescmdeobtenirlesclients':
-									mettreajourtable('clients', resp.body.data.clients);
-									//supprimercontainer('loaderblock');
-									break;
-									
-								case 'succescmdeobtenirlesagents':
-									mettreajourtable('agents', resp.body.data.agents);
-									//supprimercontainer('loaderblock');
-									break;
-									
-								case 'succescmdeobtenirlestransactions':
-									mettreajourtable('transactions', resp.body.data.transactions);
-									//supprimercontainer('loaderblock');
-									break;
-									
-								case 'succescmdeobtenirunetransaction':
-									remplirformulaire('editiontransaction', resp.body.data.transaction);
-									//supprimercontainer('loaderblock');
-									break;
-									
-								case 'succescmdeobtenirunwallet':
-									remplirformulaire('editionwallet', resp.body.data.wallet);
-									//supprimercontainer('loaderblock');
-									break;
-									
-								case 'succescmdeobtenirlestransactionswallet':
-									mettreajourtable('transactionswallet', resp.body.data.transactions);
-									//supprimercontainer('loaderblock');
-									break;
+								// case 'succescmdeobtenirleswallets':
+								// 	mettreajourtable('wallets', resp.body.data.wallets);
+								// 	//supprimercontainer('loaderblock');
+								// 	break;
 							}
 					}				
 				}
@@ -113,16 +83,16 @@ function traiterevensrvapp(e)
 								case 'echecinitcompo':
 								case 'echecmodiflang':
 								case 'echecsedeconn':
-								case 'echecmdeobtenirlesprofils':
-								case 'echecmdeobtenirlesadministrateurs':
-								case 'echecmdeobtenirleswallets':
-								case 'echecmdeobtenirlesclients':
-								case 'echecmdeobtenirlesagents':
-								case 'echecmdeobtenirlestransactions':
-								case 'echecmdeobtenirunetransaction':
-								case 'echecmdeobtenirunwallet':
-								case 'echecmdeobtenirlestransactionswallet':
-									//rendermessage(resp.body.data.msg, 0);
+								case 'echecmdeobtenirleserveys':
+								// case 'echecmdeobtenirlesadministrateurs':
+								// case 'echecmdeobtenirleswallets':
+								// case 'echecmdeobtenirlesclients':
+								// case 'echecmdeobtenirlesagents':
+								// case 'echecmdeobtenirlestransactions':
+								// case 'echecmdeobtenirunetransaction':
+								// case 'echecmdeobtenirunwallet':
+								// case 'echecmdeobtenirlestransactionswallet':
+									rendermessage(resp.body.data.msg, 0);
 									//supprimercontainer('loaderblock');
 									break;
 							}
@@ -131,7 +101,7 @@ function traiterevensrvapp(e)
 			}
 			catch(err)
 			{
-				//rendermessage(err, 0);
+				rendermessage(err, 0);
 				//supprimercontainer('loaderblock');
 			}
             break;
@@ -207,41 +177,11 @@ function initialisercomposant()
 	{
 		switch(getdata('nomvue'))
 	    {
-			case 'editionprofils':	
-				editerlesprofils();
+			case 'editionserveys':	
+				editerleserveys();
 				break;	
 				
-			case 'editionadministrateurs':	
-				editerlesadministrateurs();
-				break;	
-				
-			case 'editionwallets':	
-				editerleswallets();
-				break;
-				
-			case 'editionclients':	
-				editerlesclients();
-				break;
-				
-			case 'editionagents':	
-				editerlesagents();
-				break;
-				
-			case 'editiontransactions':	
-				editerlestransactions();
-				break;
-				
-			case 'editiontransactionedit':	
-				editerunetransaction(getdata('codetrans'));
-				break;
-				
-			case 'editionwalletedit':	
-				editerunwallet(getdata('codewallet'));
-				break;
-				
-			case 'editiontransactionswallet':	
-				editerlestransactionsunwallet(getdata('codewallet'));
-				break;
+			
 		}
 	}
 }
@@ -266,11 +206,11 @@ function sedeconnecter()
 	envoyerequete(data);
 }
 
-function editerlesprofils()
+function editerleserveys()
 {
 	var data = new FormData();
 	data.append('sidxhr', sessionStorage.getItem("sidxhr"));
-	data.append('action', 'cmdeobtenirlesprofils');
+	data.append('action', 'cmdeobtenirleserveys');
 	data.append('critere', "");
 	data.append('debut', 0);
 	data.append('limit', 100);
@@ -393,6 +333,18 @@ function getdata(pkey)
 {
 	return sessionStorage.getItem(pkey);
 }
+
+// fonction construire la vue creationservey à partir de creer
+function creerconstcreationservey(){
+	construirevue('webresposervey', 'creationservey');
+}
+
+// fonction construire la vue editionserveys à partir de lbgestionserveys
+function lbgestionserveyscosnteditionservey(){
+    construirevue('webresposervey', 'editionserveys');
+}
+
+lbgestionserveys
 
 function traiterevenform(e)
 {

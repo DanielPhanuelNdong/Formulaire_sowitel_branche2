@@ -241,7 +241,7 @@ window.addEventListener('click', (event) => {
 })
 
 // bouton photos..........................
-const mes_photos = document.getElementById('mes-photos')
+const mes_photos = document.getElementById('btnphotos')
 const id_contenant_images = document.getElementById('id-contenant-images')
 mes_photos.addEventListener('click', () => {
     id_contenant_images.classList.contains('disp') ? id_contenant_images.classList.remove('disp') : id_contenant_images.classList.add('disp')
@@ -249,7 +249,7 @@ mes_photos.addEventListener('click', () => {
 
 
 // afficher le tableau 2 apres appuis sur wifi
-const wifi = document.getElementById('wifi')
+const wifi = document.getElementById('btnwifi')
 const tableau_2 = document.getElementById('tableau_2')
 
 wifi.addEventListener('click', () => {
