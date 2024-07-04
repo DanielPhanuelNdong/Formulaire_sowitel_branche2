@@ -53,8 +53,9 @@
                     </div>
                 </div>
             </section>
-            <div class="tableau">
-                <div id="editionserveys">
+            
+            <div class="tableau" >
+                <div id="editionserveys" >
                     <div class="div1">
                         <div class="div111">
                             <i class=" ic fa-regular fa-user"></i>
@@ -81,27 +82,24 @@
                         </thead>
                         
                     </table>
-
                 </div>
-                
                 <!-- partie formulaire -->
                 
-            <div class="formulaire" id="creationservey">
-                <!-- Formulaire Serveys id=para-->
-                <p id="lbinfoservey"> </p> 
-                <Form method="post" action="">
+            <div id="idid">
+                <p id="para">Formulaire Serveys </p>
+                <Form id="formm" method="post" action="">
                     <!-- partie1 formulaire -->
                     <div class="partie1-form">
                         <div>
-                            <label class="partie1-label" for="site" id="lbnomsite"></label>
-                        <input id="placenomsite" class="partie1-select-input" name="site" type="text" placeholder="" required>
+                            <label class="partie1-label" for="site">Nom du Site</label>
+                        <input class="disinput partie1-select-input" name="site" type="text" placeholder="Nom du Site" required>
                         </div>
                         <div>
-                            <label class="partie1-label" for="reseau" id="lbnomreseau"></label>
-                        <input id="placenomreseau" class="partie1-select-input" name="reseau" type="text" placeholder="" required>
+                            <label class="partie1-label" for="reseau">Nom du Réseau</label>
+                        <input class="disinput partie1-select-input" name="reseau" type="text" placeholder="Nom du Réseau" required>
                         </div>
                         <div>
-                            <label class="partie1-label"for="pays" id="lbpays"></label>
+                            <label class="partie1-label"for="pays">Pays</label>
                         <select class="partie1-select-input" name="pays" id="pays" required>
                             <option value=""></option>
                             <option value="France">France</option>
@@ -120,7 +118,7 @@
                         </select>
                         </div>
                         <div>
-                            <label class="partie1-label" for="ville" id="lbville"></label>
+                            <label class="partie1-label" for="ville">Ville</label>
                         <select class="partie1-select-input" name="ville" id="ville" required>
                             <option value=""></option>
                             <option value="Paris">Paris</option>
@@ -139,114 +137,124 @@
                         </select>
                         </div>
                         <div>
-                            <label class="partie1-label" for="date" id="lbdate"></label>
-                        <input class="partie1-select-input" name="date" type="date" placeholder="Date" required>
+                            <label class="partie1-label" for="date">Date</label>
+                        <input class="disinput partie1-select-input" name="date" type="date" placeholder="Date" required>
                         </div>
                     </div><hr class="hr1">
-                    <div class="caract" id="lbcarateristiques"> :</div>
+                    <div class="caract">Caractéristiques :</div>
                     <!-- partie2 formulaire -->
                     <div class="partie2-form">
                         <div class="ensemble1">
                             <div class="ensemble-cover-check">
                                 <div class="cover-check">
-                                    <div class="check" id="lbimmeuble"></div>
+                                    <div class="check">Immeuble ?</div>
                             <div class="block-check">
                                 <div class="block-check-oui">
-                                    <label for="oui" id="lbimbleoui">
+                                    <label for="oui">
+                                        Oui
                                     </label>
-                                    <input type="checkbox" name="oui" id="oui1" required>
+                                    <input class="disinput" type="checkbox" name="oui" id="oui1" required>
                                 </div>
                                 <div class="block-check-non">
-                                    <label for="non" id="lbimblenon">
+                                    <label for="non">
+                                        Non
                                     </label>
-                                    <input type="checkbox" name="non" id="non1" required>
+                                    <input class="disinput" type="checkbox" name="non" id="non1" required>
                                 </div>
                             </div>
                                 </div>
                             <div class="cover-check-second disp" id="hauteur">
-                                <label  for="hauteur" id="lbhauteur"></label>
-                            <input id="placehauteur" name="hauteur" type="text" placeholder="" required>
+                                <label  for="hauteur">Hauteur</label>
+                            <input class="disinput" id="haute" name="hauteur" type="text" placeholder="Hauteur" required>
                             </div>
                             </div>
                         <div class="ensemble-cover-check disp" id="dalles">
                             <div class="cover-check">
-                                <div class="check" id="lbdalle"></div>
+                                <div class="check">Dalles ?</div>
                             <div class="block-check">
                                 <div class="block-check-oui">
-                                    <label for="oui" id="lbdaloui">
+                                    <label for="oui">
+                                        Oui
                                     </label>
-                                    <input type="checkbox" name="oui" id="oui2" required>
+                                    <input class="disinput" type="checkbox" name="oui" id="oui2" required>
                                 </div>
                                 <div class="block-check-non">
-                                    <label for="non" id="lbdalnon">
+                                    <label for="non">
+                                        Non
                                     </label>
-                                    <input type="checkbox" name="non" id="non2" required>
+                                    <input class="disinput" type="checkbox" name="non" id="non2" required>
                                 </div>
                             </div>
                             </div>
                             <div class="cover-check-second disp" id="etat_dalles">
-                                <label  for="etat" id="lbetatdal"></label>
-                            <input id="placetatdal" type="text" name="etat" placeholder="">
+                                <label  for="etat">Etats des dalles</label>
+                            <input class="disinput" id="dals" type="text" name="etat" placeholder="Etats des dalles">
                             </div>
                         </div>
                         </div>
                     <div class="ensemble1">
                         <div class="ensemble-cover-check">
                             <div class="cover-check">
-                                <div class="check" id="lbsourcelect"></div>
+                                <div class="check">Source électrique ?</div>
                             <div class="block-check">
                                 <div class="block-check-oui">
-                                    <label for="oui" id="lbsourcelectoui">
+                                    <label for="oui">
+                                        Oui
                                     </label>
-                                    <input type="checkbox" name="oui" id="oui3" required>
+                                    <input class="disinput" type="checkbox" name="oui" id="oui3" required>
                                 </div>
                                 <div class="block-check-non">
-                                    <label for="non" id="lbsourcelectnon">
+                                    <label for="non">
+                                        Non
                                     </label>
-                                    <input type="checkbox" name="non" id="non3" required>
+                                    <input class="disinput" type="checkbox" name="non" id="non3" required>
                                 </div>
                             </div>
                             </div>
                             <div class="cover-check">
-                                <div class="check" id="lbpriseterre"></div>
+                                <div class="check">Prise terre ?</div>
                             <div class="block-check">
                                 <div class="block-check-oui">
-                                    <label for="oui" id="lbpriseterreoui">
+                                    <label for="oui">
+                                        Oui
                                     </label>
-                                    <input type="checkbox" name="oui" id="oui5" required>
+                                    <input class="disinput" type="checkbox" name="oui" id="oui5" required>
                                 </div>
                                 <div class="block-check-non">
-                                    <label for="non" id="lbpriseterrenon">
+                                    <label for="non">
+                                        Non
                                     </label>
-                                    <input type="checkbox" name="non" id="non5" required>
+                                    <input class="disinput" type="checkbox" name="non" id="non5" required>
                                 </div>
                             </div>
                             </div>
                             <div class="cover-check-second" id="gps">
-                                <label class="v-gps" for="GPS" id="lbcoordgps"></label>
-                            <input id="placelongitude" class="v-gps" name="GPS" type="text" placeholder="" required>
-                            <input id="placelatitude" class="v-gps" name="GPS" type="text" placeholder="" required>
-                            <input id="placeadresse" class="v-gps" name="GPS" type="text" placeholder="" required>
+                                <label class="v-gps" for="GPS">Coordonnées GPS</label>
+                            <input class="disinput v-gps" name="GPS" type="text" placeholder="Longitude" required>
+                            <input class="disinput v-gps" name="GPS" type="text" placeholder="Latitude" required>
+                            <input class="disinput v-gps" name="GPS" type="text" placeholder="Adresse" required>
                             </div>
                         </div>
                         <div class="ensemble-cover-check">
                             <div class="cover-check">
-                                <div class="check" id="lboperateurexist"></div>
+                                <div class="check">Opérateur existant ?</div>
                             <div class="block-check">
                                 <div class="block-check-oui">
-                                    <label for="oui" id="lboperateurexistoui">
+                                    <label for="oui">
+                                        Oui
                                     </label>
-                                    <input type="checkbox" name="oui" id="oui4" required>
+                                    <input class="disinput" type="checkbox" name="oui" id="oui4" required>
                                 </div>
-                                <div class="block-check-non" id="lboperateurexistnon">
+                                <div class="block-check-non">
                                     <label for="non">
+                                        Non
                                     </label>
-                                    <input type="checkbox" name="non" id="non4" required>
+                                    <input class="disinput" type="checkbox" name="non" id="non4" required>
                                 </div>
                             </div>
                             </div>
                             <div class="cover-check-second disp" id="operateur">
-                                <label  for="Operateur" id="lboperateur"></label>
+                                <label  for="Operateur">Opérateur existant</label>
                             <!-- <input name="Operateur" type="text" placeholder="Opérateur existant" required> -->
                             <select class="operateur-existant" name="Operateur" id="">
                                 <option value=""></option>
@@ -258,22 +266,22 @@
                     </div>
                     </div>
                     <hr class="hr2">
-                    <div class="caract" id="lbclientcible"></div>
+                    <div class="caract">Clientelle cible :</div>
                     <div class="clientelle">
                         <div class="cover-check-second" >
-                            <label for="mobile" id="lbmobile"></label>
-                        <input id="placembile" name="mobile" type="text" placeholder="" required>
+                            <label for="mobile">Mobile</label>
+                        <input class="disinput" name="mobile" type="text" placeholder="Mobile" required>
                         </div>
                         <div class="cover-check-second" >
-                            <label for="b" id="lbBtoB"></label>
-                        <input id="placeBtoB" name="b" type="text" placeholder="" required>
+                            <label for="b">B to B</label>
+                        <input class="disinput" name="b" type="text" placeholder="B to B" required>
                         </div>
                     </div>
                     <hr class="hr2">
                     <div class="wifi">
-                        <div class="caract" id="lbscanperiphwifi"></div>
+                        <div class="caract">Scan périphériques wifi :</div>
                     <div>
-                        <button type="button" id="btnwifi"></button>
+                        <button type="button" id="wifi">Wifi</button>
                     </div>
                     </div>
                     <div class="tableau2 disp" id="tableau_2">
@@ -322,15 +330,15 @@
                             <form action="">
                                 <div  class="cover-check-second">
                                     <label for="Nom_wifi">Nom du wifi</label>
-                                    <input type="text" name="nom_wifi" placeholder="Nom du wifi" required>
+                                    <input class="disinput" type="text" name="nom_wifi" placeholder="Nom du wifi" required>
                                 </div  class="cover-check-second">
                                 <div  class="cover-check-second">
                                     <label for="frequence">Fréquence</label>
-                                    <input type="text" name="frequence" placeholder="Fréquence" required>
+                                    <input class="disinput" type="text" name="frequence" placeholder="Fréquence" required>
                                 </div>
                                 <div  class="cover-check-second">
                                     <label for="canal">Canal</label>
-                                    <input type="text" name="canal" placeholder="Canal" required>
+                                    <input class="disinput" type="text" name="canal" placeholder="Canal" required>
                                 </div>
                             </form>
                             <div class="bout">
@@ -352,14 +360,14 @@
                     <hr class="hr2">
                     <div class="descript">
                         <!-- <label class="partie2-label"  for="Description">Description de l'environnement</label> -->
-                    <Textarea id="placedescriptenviron" class="desc-environnement" name="Description" placeholder="Description de l'environnement"></Textarea>
+                    <Textarea class="desc-environnement" name="Description" placeholder="Description de l'environnement"></Textarea>
                     </div>
                     <div class="ajouts-photos">
                         <div>
-                            <label class="partie2-label"  for="photos" id="lbphotos"></label>
-                        <input type="file" name="photos" id="" placeholder="inserer des images"  required>
+                            <label class="partie2-label"  for="photos">photos</label>
+                        <input class="disinput" type="file" name="photos" id="" placeholder="inserer des images"  required>
                         </div>
-                            <button id="btnphotos" type="button">Photos</button>
+                            <button id="mes-photos" type="button">Photos</button>
                     </div>
                     <div class="contenant-images disp" id="id-contenant-images">
                         <div id="image-description">
@@ -386,16 +394,16 @@
                     <div class="group-s-b">
                         <div class="group-submit">
                             <div class="submit" id="valider">
-                                <button type="button">Valider</button>
+                                <div id="valider"><button type="button">Valider</button></div>
                             </div>
                             <div class="submit" id="annuler">
-                                <button type="button">Annuler</button>
+                                <div id="annuler"><button type="button">Annuler</button></div>
                             </div>
                         </div>
                         <div class="group-bouton">
-                            <button type="button">Modifier</button>
-                            <button type="button">Supprimer</button>
-                            <button id="btnsoumcreatservey" type="button"></button>
+                            <div id="modifier"><button type="button" >Modifier</button></div>
+                            <div id="supprimer"><button type="button" >Supprimer</button></div>
+                            <div id="soummettre"><button type="button">Soumettre</button></div>
                         </div>
                     </div>
                 </Form >

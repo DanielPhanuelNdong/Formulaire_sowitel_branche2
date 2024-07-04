@@ -92,7 +92,7 @@ function traiterevensrvapp(e)
 								// case 'echecmdeobtenirunetransaction':
 								// case 'echecmdeobtenirunwallet':
 								// case 'echecmdeobtenirlestransactionswallet':
-									rendermessage(resp.body.data.msg, 0);
+									//rendermessage(resp.body.data.msg, 0);
 									//supprimercontainer('loaderblock');
 									break;
 							}
@@ -101,7 +101,7 @@ function traiterevensrvapp(e)
 			}
 			catch(err)
 			{
-				rendermessage(err, 0);
+				//rendermessage(err, 0);
 				//supprimercontainer('loaderblock');
 			}
             break;
@@ -141,6 +141,7 @@ function ouvrir(pnomesptrav)
 	data.append('nomesptrav', pnomesptrav);
 	envoyerequete(data);
 }
+
 
 function initialiserunevue(pnomvue)
 {	
@@ -339,9 +340,15 @@ function creerconstcreationservey(){
 	construirevue('webresposervey', 'creationservey');
 }
 
+//fonction pour charger l'edtion d'un servey
+function constediterservey(){
+	construirevue('webresposervey', 'editionservey');
+}
+
 // fonction construire la vue editionserveys à partir de lbgestionserveys
 function lbgestionserveyscosnteditionservey(){
     construirevue('webresposervey', 'editionserveys');
+	//formulaire.classList.add('disp');
 }
 
 lbgestionserveys
@@ -369,6 +376,7 @@ function traiterevenform(e)
 function traitereventable(e)
 {
 	e.preventDefault();	
+	//console.log(e.target.parentNode.dataset.action, e.target.parentNode.dataset.nomvue, e.target.parentNode.dataset.libcode, e.target.parentNode.dataset.valcode);
 	switch(e.target.parentNode.dataset.action)
 	{
 		case 'initialiserunevuetype2':

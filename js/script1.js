@@ -217,7 +217,7 @@ close_modal.addEventListener('click', () => {
     modal.classList.add('disp')
 })
 valider_modal.addEventListener('click', () => {
-    modal.classList.add('disp')
+    modal.classList.add('disp');
 })
 
 // modal pour afficher l'image apres un click sur l'image
@@ -241,7 +241,7 @@ window.addEventListener('click', (event) => {
 })
 
 // bouton photos..........................
-const mes_photos = document.getElementById('btnphotos')
+const mes_photos = document.getElementById('mes-photos')
 const id_contenant_images = document.getElementById('id-contenant-images')
 mes_photos.addEventListener('click', () => {
     id_contenant_images.classList.contains('disp') ? id_contenant_images.classList.remove('disp') : id_contenant_images.classList.add('disp')
@@ -249,9 +249,31 @@ mes_photos.addEventListener('click', () => {
 
 
 // afficher le tableau 2 apres appuis sur wifi
-const wifi = document.getElementById('btnwifi')
+const wifi = document.getElementById('wifi')
 const tableau_2 = document.getElementById('tableau_2')
 
 wifi.addEventListener('click', () => {
     tableau_2.classList.contains('disp') ? tableau_2.classList.remove('disp') : tableau_2.classList.add('disp')
 })
+
+//bouton creer
+// const btncreer = document.getElementById('btncreerservey');
+// 	const formulaire = document.getElementById('creationservey');
+// 	const editionserveys = document.getElementById('editionserveys');
+// 	btncreer.addEventListener('click', () => {
+// 		formulaire.classList.contains('disp') ? formulaire.classList.remove('disp') : formulaire.classList.add('disp');
+// 		formulaire.classList.contains('disp') ? editionserveys.classList.add('disp') : editionserveys.classList.remove('disp')
+
+// 	});
+
+
+//document.getElementById(conten.nomconten).addEventListener("click", creerconstcreationservey);
+// const btncreer = document.getElementById('btncreerservey');
+// const formulaire = document.getElementById('creationservey');
+// const vue = document.getElementById('creationservey');
+// btncreer.addEventListener('click', () => {
+    
+// 	document.getElementById(nomvue).setAttribute("style", "padding: 0; display: none;");
+// 	formulaire.classList.remove('disp');
+
+// });

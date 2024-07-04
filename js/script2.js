@@ -1,19 +1,138 @@
 function construirevue(nomesptrav, nomvue)
 {
+	const modif = document.getElementById('modifier');
+					const Supprimer = document.getElementById('supprimer');
+					const valider = document.getElementById('valider');
+					const annuler = document.getElementById('annuler');
+					const soummettre = document.getElementById('soummettre');
+					const valider_mmodal = document.getElementById('valid');
+					const modal = document.getElementById('mod');
+					const formm = document.getElementById('formm');
+					const inputs = document.getElementsByTagName('input');
+					// const bouton = document.getElementsByTagName('button');
+					// const select = document.getElementsByTagName('select');
+
 	switch(nomesptrav)
     {
 		case 'webresposervey':
 			document.getElementById('editionserveys').setAttribute("style", "padding: 0; display: none;");
-			document.getElementById('creationservey').setAttribute("style", "padding: 0; display: none;");
+			document.getElementById('idid').setAttribute("style", "padding: 0; display: none;");
+			document.getElementById('idid').setAttribute("style", "padding: 0; display: none;");
 			switch(nomvue)
             {
 				case 'editionserveys':
 					document.getElementById(nomvue).setAttribute("style", "padding: 0; display: block;");
+
+					// document.addEventListener('DOMContentLoaded', (event) => {
+					// 	const table = document.getElementById('serveys');
+					// 	const tbody = table.getElementsByTagName('tbody')[0];
+					// 	const rows = tbody.getElementsByTagName('tr');
+			
+					// 	for (let i = 0; i < rows.length; i++) {
+					// 		rows[i].addEventListener('click', function() {
+					// 			constediterservey;
+					// 		});
+					// 	}
+					// });
 					break;
 
 				case 'creationservey':
-					document.getElementById(nomvue).setAttribute("style", "padding: 0; display: block;");
+					document.getElementById('idid').setAttribute("style", "padding: 0; display: block;");
+					
+                         for (let i = 0; i < inputs.length; i++) {
+                             inputs[i].disabled = false;
+                         }
+						//  for (let j = 0; j < bouton.length; i++) {
+						// 	bouton[j].disabled = false;
+						// }
+						// for (let k = 0; k < select.length; i++) {
+						// 	select[k].disabled = false;
+						// }
+					//if(!modif.classList.contains('disp')){
+						modif.classList.add('disp');
+						valider.classList.remove('disp');
+						annuler.classList.remove('disp');
+                        Supprimer.classList.add('disp');
+						soummettre.classList.add('disp');
+					//}
+					
+					
+						// soummettre.addEventListener('click', () => {
+						// 	valider.classList.remove('disp');
+						// annuler.classList.remove('disp');
+						// })
+						annuler.addEventListener('click',
+							lbgestionserveyscosnteditionservey
+						)
+
+						valider_mmodal.addEventListener('click', lbgestionserveyscosnteditionservey);
 					break;
+
+					case 'editionservey':
+						//document.getElementById('idid').setAttribute("style", "padding: 0; display: block;");
+						document.getElementById('idid').setAttribute("style", "padding: 0; display: block;");
+
+						//const inputs = document.getElementsByTagName('input');
+                         for (let i = 0; i < inputs.length; i++) {
+                             inputs[i].disabled = true;
+                         }
+						//  for (let j = 0; j < bouton.length; i++) {
+						// 	bouton[j].disabled = true;
+						// }
+						// for (let k = 0; k < select.length; i++) {
+						// 	select[k].disabled = true;
+						// }
+						modif.classList.remove('disp');
+						//if(!modif.classList.contains('disp')){
+							valider.classList.add('disp');
+						annuler.classList.add('disp');
+                        Supprimer.classList.remove('disp');
+						soummettre.classList.remove('disp');
+						//}
+						
+						Supprimer.addEventListener('click', () => {
+							modal.classList.remove('disp');
+						// 	valider.classList.remove('disp');
+						// annuler.classList.remove('disp');
+						})
+
+						soummettre.addEventListener('click', () => {
+							modal.classList.remove('disp');
+						// 	valider.classList.remove('disp');
+						// annuler.classList.remove('disp');
+						})
+
+						modif.addEventListener('click', () => {
+							//modal.classList.remove('disp');
+							for (let i = 0; i < inputs.length; i++) {
+								inputs[i].disabled = false;
+							}
+							// for (let j = 0; j < bouton.length; i++) {
+							// 	bouton[j].disabled = false;
+							// }
+							// for (let k = 0; k < select.length; i++) {
+							// 	select[k].disabled = false;
+							// }
+							valider.classList.remove('disp');
+						annuler.classList.remove('disp');
+						})
+
+						annuler.addEventListener('click', () => {
+							for (let i = 0; i < inputs.length; i++) {
+								inputs[i].disabled = true;
+							}
+							// for (let j = 0; j < bouton.length; i++) {
+							// 	bouton[j].disabled = true;
+							// }
+							// for (let k = 0; k < select.length; i++) {
+							// 	select[k].disabled = true;
+							// }
+							valider.classList.add('disp');
+						annuler.classList.add('disp');
+						})
+
+						valider_mmodal.addEventListener('click', lbgestionserveyscosnteditionservey);
+						break;
 			}
 		break;
 	}
@@ -114,307 +233,316 @@ function construirecomposant(nomesptrav, nomvue, nomcompo, contenus)
 					break;
 
 			    case 'creationservey':
-					switch(nomcompo)
-					{
-						case 'sidebar':
-							for (const conten of contenus)
-							{
-								switch(conten.nomconten)
-					            {
-									case 'lbdeconnexion':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
-										document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										break;
+					
+					// switch(nomcompo)
+					// {
+
+						
+
+
+				// 		case 'sidebar':
+				// 			for (const conten of contenus)
+				// 			{
+				// 				switch(conten.nomconten)
+				// 	            {
+				// 					case 'lbdeconnexion':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+				// 						document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 						break;
 										
-									case 'lbgestionserveys':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-										break;
-								}
-							}
-							break;
+				// 					case 'lbgestionserveys':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 						break;
+				// 				}
+				// 			}
+				// 			break;
 
-						case 'Entetecreatservey':
-							for (const conten of contenus)
-							{
-								switch(conten.nomconten)
-								{
-									case 'lbnomsite':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
-										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										break;
+				// 		case 'Entetecreatservey':
+				// 			for (const conten of contenus)
+				// 			{
+				// 				switch(conten.nomconten)
+				// 				{
+				// 					case 'lbnomsite':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+				// 						// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 						break;
 											
-									case 'lbpays':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-										break;
+				// 					case 'lbpays':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 						break;
 
-									case 'lbville':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										break;
+				// 					case 'lbville':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 						break;
 
-									case 'lbdate':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										break;
+				// 					case 'lbdate':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 						break;
 
-									case 'lbnomreseau':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										break;
+				// 					case 'lbnomreseau':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 						break;
 
-									case 'lbinfoservey':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-										break;
+				// 					case 'lbinfoservey':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 						break;
 
-									case 'placenomsite':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										break;
+				// 					case 'placenomsite':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 						break;
 
-									case 'placenomreseau':
-										document.getElementById(conten.nomconten).innerText = conten.lib;
-										// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-										break;
+				// 					case 'placenomreseau':
+				// 						document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 						// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 						break;
 
 									
-									}
-							}
-							break;
+				// 					}
+				// 			}
+				// 			break;
 
-						case 'bdycreatservey1':
-							for (const conten of contenus)
-								{
-									switch(conten.nomconten)
-									{
-										case 'lbcarateristiques':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 		case 'bdycreatservey1':
+				// 			for (const conten of contenus)
+				// 				{
+				// 					switch(conten.nomconten)
+				// 					{
+				// 						case 'lbcarateristiques':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 												
-										case 'lbimmeuble':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-											break;
+				// 						case 'lbimmeuble':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 							break;
 	
-										case 'lbimbleoui':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbimbleoui':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbimblenon':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbimblenon':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbhauteur':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbhauteur':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbdalle':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-											break;
+				// 						case 'lbdalle':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 							break;
 	
-										case 'lbdaloui':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbdaloui':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbdalnon':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbdalnon':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbetatdal':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbetatdal':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbsourcelect':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-											break;
+				// 						case 'lbsourcelect':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 							break;
 	
-										case 'lbsourcelectoui':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbsourcelectoui':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbsourcelectnon':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbsourcelectnon':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbpriseterre':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbpriseterre':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbpriseterreoui':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-											break;
+				// 						case 'lbpriseterreoui':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 							break;
 	
-										case 'lbpriseterrenon':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbpriseterrenon':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbcoordgps':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbcoordgps':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lboperateurexist':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lboperateurexist':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lboperateurexistoui':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-											break;
+				// 						case 'lboperateurexistoui':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 							break;
 	
-										case 'lboperateurexistnon':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lboperateurexistnon':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lboperateur':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lboperateur':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'placehauteur':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'placehauteur':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'placelongitude':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'placelongitude':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'placetatdal':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'placetatdal':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'placelatitude':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'placelatitude':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'placeadresse':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
-										}
-							}
-							break;
+				// 						case 'placeadresse':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
+				// 						}
+				// 			}
+				// 			break;
 
-						case 'bodycreatservey2':
-							for (const conten of contenus)
-							{
-								switch(conten.nomconten)
-									{
-										case 'lbclientcible':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 		case 'bodycreatservey2':
+				// 			for (const conten of contenus)
+				// 			{
+				// 				switch(conten.nomconten)
+				// 					{
+				// 						case 'lbclientcible':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbmobile':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'lbmobile':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'lbBtoB':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-											break;
+				// 						case 'lbBtoB':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 							break;
 	
-										case 'placembile':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
-											break;
+				// 						case 'placembile':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							//document.getElementById(conten.nomconten).parentNode.setAttribute('class', 'active');
+				// 							break;
 	
-										case 'placeBtoB':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'placeBtoB':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 
-										}
-							}
-							break;
+				// 						}
+				// 			}
+				// 			break;
 
-						case 'bodycreatservey3':
-							for (const conten of contenus)
-							{
-								switch(conten.nomconten)
-									{
-										case 'lbscanperiphwifi':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 		case 'bodycreatservey3':
+				// 			for (const conten of contenus)
+				// 			{
+				// 				switch(conten.nomconten)
+				// 					{
+				// 						case 'lbscanperiphwifi':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 	
-										case 'btnwifi':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'btnwifi':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 											
-										}
-							}
-							break;
+				// 						}
+				// 			}
+				// 			break;
 
-						case 'bodycreatservey4':
-							for (const conten of contenus)
-							{
-								switch(conten.nomconten)
-									{
-										case 'lbphotos':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 		case 'bodycreatservey4':
+				// 			for (const conten of contenus)
+				// 			{
+				// 				switch(conten.nomconten)
+				// 					{
+				// 						case 'lbphotos':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 		
-										case 'btnphotos':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'btnphotos':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 
-										case 'placedescriptenviron':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
+				// 						case 'placedescriptenviron':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
 												
-										}
-							}
-							break;
+				// 						}
+				// 			}
+				// 			break;
 
-						case 'footercreatservey':
-							for (const conten of contenus)
-							{
-								switch(conten.nomconten)
-									{
-										case 'btnsoumcreatservey':
-											document.getElementById(conten.nomconten).innerText = conten.lib;
-											// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
-											// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
-											break;
-									}
-							}
-							break;
+				// 		case 'footercreatservey':
+				// 			for (const conten of contenus)
+				// 			{
+				// 				switch(conten.nomconten)
+				// 					{
+				// 						case 'btnsoumcreatservey':
+				// 							document.getElementById(conten.nomconten).innerText = conten.lib;
+				// 							// document.getElementById(conten.nomconten).setAttribute("data-action", 'sedeconnecter');
+				// 							// document.getElementById(conten.nomconten).addEventListener("click", traiterevenform);
+				// 							break;
+				// 					}
+				// 			}
+				// 			break;
 
-					}
+					//}
+				break;
+			    
+				case 'editionservey':
+					break;
 			}
 		break;
 	}
@@ -548,7 +676,13 @@ function mettreajourtable(tableid, data)
 			var j = 1;
 			data.forEach(item => 
 			{
-		        var tr = document.createElement("tr");
+				var tr = document.createElement("tr");
+				tr.setAttribute("data-action", 'initialiserunevuetype2');
+				tr.setAttribute("data-nomvue", 'editionservey');
+				tr.setAttribute("data-libcode", 'codeservey');
+				tr.setAttribute("data-valcode", item.code);
+				tr.addEventListener("click", traitereventable);
+				tr.addEventListener("dblclick", traitereventable);
 		        tr.setAttribute('id', item.nomsite);
 		        var td = document.createElement("td");
 		        td.setAttribute('class', 'text-center');
@@ -949,58 +1083,58 @@ function viderformidentificationweb()
 	document.getElementById("lbmdp").value = '';
 }
 
-function rendermessage(msg, type) 
-{
-    var class1 = "", class2 = "";
-    switch (type) 
-    {
-        case 0:
-            class1 = "alert fade alert-danger lgalert";
-            class2 = "icon icon-feather-alert-triangle";
-            break;
+// function rendermessage(msg, type) 
+// {
+//     var class1 = "", class2 = "";
+//     switch (type) 
+//     {
+//         case 0:
+//             class1 = "alert fade alert-danger lgalert";
+//             class2 = "icon icon-feather-alert-triangle";
+//             break;
 
-        case 1:
-            class1 = "alert fade alert-success lgalert";
-            class2 = "icon icon-feather-check-circle";
-            break;
+//         case 1:
+//             class1 = "alert fade alert-success lgalert";
+//             class2 = "icon icon-feather-check-circle";
+//             break;
 
-        case 2:
-            class1 = "alert fade alert-warning lgalert";
-            class2 = "icon icon-feather-alert-triangle";
-            break;
+//         case 2:
+//             class1 = "alert fade alert-warning lgalert";
+//             class2 = "icon icon-feather-alert-triangle";
+//             break;
 
-        case 3:
-            class1 = "alert fade alert-info lgalert";
-            class2 = "icon icon-feather-info";
-            break;
-    }
+//         case 3:
+//             class1 = "alert fade alert-info lgalert";
+//             class2 = "icon icon-feather-info";
+//             break;
+//     }
 
-    var contentmessage = document.getElementById('message');
-	contentmessage.innerHTML = '';
-    var divmessage = document.createElement("div");
-    divmessage.setAttribute("class", class1);
-    var buttonmsgclose = document.createElement("button");
-    buttonmsgclose.setAttribute("class", "closealert");
-    buttonmsgclose.setAttribute("id", "closemsg")
-    var ibuttonmsgclose = document.createElement("i");
-    ibuttonmsgclose.setAttribute("class", "icon icon-feather-x-circle");
-    buttonmsgclose.appendChild(ibuttonmsgclose);
-    divmessage.appendChild(buttonmsgclose);
-    var iconmsg = document.createElement("i");
-    iconmsg.setAttribute("class", class2);
-    divmessage.appendChild(iconmsg);
-    var spanmsg = document.createElement("span");
-    spanmsg.innerText = msg;
-    divmessage.appendChild(spanmsg);
+//     var contentmessage = document.getElementById('message');
+// 	contentmessage.innerHTML = '';
+//     var divmessage = document.createElement("div");
+//     divmessage.setAttribute("class", class1);
+//     var buttonmsgclose = document.createElement("button");
+//     buttonmsgclose.setAttribute("class", "closealert");
+//     buttonmsgclose.setAttribute("id", "closemsg")
+//     var ibuttonmsgclose = document.createElement("i");
+//     ibuttonmsgclose.setAttribute("class", "icon icon-feather-x-circle");
+//     buttonmsgclose.appendChild(ibuttonmsgclose);
+//     divmessage.appendChild(buttonmsgclose);
+//     var iconmsg = document.createElement("i");
+//     iconmsg.setAttribute("class", class2);
+//     divmessage.appendChild(iconmsg);
+//     var spanmsg = document.createElement("span");
+//     spanmsg.innerText = msg;
+//     divmessage.appendChild(spanmsg);
 
-    contentmessage.appendChild(divmessage);
+//     contentmessage.appendChild(divmessage);
 
-   	const closeMsg = document.querySelector("#closemsg");
+//    	const closeMsg = document.querySelector("#closemsg");
 
-    closeMsg.addEventListener('click', () => {
-        divmessage.remove();
-    })
-}
+//     closeMsg.addEventListener('click', () => {
+//         divmessage.remove();
+//     })
+// }
 
 function buildoperatinloader() 
 {
